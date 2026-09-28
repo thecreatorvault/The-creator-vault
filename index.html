@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Viral Creator Vault @ ₹99</title>
-  
+  <title>The Viral Creator Vault — Get Instant Access @ ₹99</title>
+
   <!-- Meta Pixel Code -->
   <script>
     !function(f,b,e,v,n,t,s)
@@ -16,330 +16,430 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     
-    // YAHAN APNA PIXEL ID DAALEIN
+    // REPLACE WITH YOUR ACTUAL META PIXEL ID
     fbq('init', 'YOUR_PIXEL_ID_HERE');
     fbq('track', 'PageView');
   </script>
   <!-- End Meta Pixel Code -->
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    :root {
+      --bg: #090e0b;
+      --card-bg: #111a14;
+      --card-border: #1b2e23;
+      --primary: #10b981;
+      --primary-hover: #059669;
+      --accent: #34d399;
+      --text: #f9fafb;
+      --text-muted: #9ca3af;
+      --gold: #f59e0b;
     }
 
-    body {
-      background-color: #080d0a;
-      color: #f3f4f6;
-      display: flex;
-      justify-content: center;
-      padding: 24px 16px 90px;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: var(--bg); color: var(--text); display: flex; justify-content: center; padding: 16px 14px 110px; }
+    .container { max-width: 480px; width: 100%; }
 
-    .container {
-      max-width: 440px;
-      width: 100%;
-      text-align: center;
-    }
-
-    .tag {
+    /* Hero Section */
+    .pill {
       display: inline-block;
       background: rgba(16, 185, 129, 0.12);
-      border: 1px solid #10b981;
-      color: #34d399;
+      border: 1px solid var(--primary);
+      color: var(--accent);
       font-size: 11px;
       font-weight: 700;
-      padding: 5px 12px;
+      padding: 4px 12px;
       border-radius: 20px;
+      text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     h1 {
-      font-size: 26px;
-      font-weight: 800;
+      font-size: 25px;
       line-height: 1.3;
+      font-weight: 800;
+      color: #ffffff;
       margin-bottom: 8px;
     }
 
     h1 span {
-      color: #10b981;
+      color: var(--primary);
     }
 
-    p.sub {
-      font-size: 14px;
-      color: #9ca3af;
-      margin-bottom: 20px;
-      line-height: 1.45;
+    p.subtext {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 18px;
     }
 
-    /* Minimal Landscape Vault Banner */
-    .banner {
-      background: linear-gradient(135deg, #092116, #04120b);
-      border: 1px solid #1b382b;
+    /* Landscape Smart Card (Banner) */
+    .banner-card {
+      background: linear-gradient(135deg, #0f2b1d, #081710);
+      border: 1px solid var(--card-border);
       border-radius: 14px;
-      padding: 24px 16px;
-      margin-bottom: 22px;
+      padding: 22px 16px;
+      text-align: center;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
     }
 
-    .banner-title {
-      font-size: 22px;
+    .banner-card h2 {
+      font-size: 21px;
       font-weight: 900;
-      color: #ffffff;
       letter-spacing: 0.5px;
+      color: #fff;
     }
 
-    .banner-meta {
-      font-size: 12px;
-      color: #34d399;
-      margin-top: 6px;
+    .banner-card p {
+      font-size: 12.5px;
+      color: var(--accent);
+      margin-top: 4px;
       font-weight: 600;
     }
 
-    /* Clean Bullet Points */
-    .checklist {
-      text-align: left;
-      background: #0d1712;
-      border: 1px solid #162c20;
-      border-radius: 14px;
-      padding: 18px 16px;
-      margin-bottom: 22px;
-    }
-
-    .item {
+    .meta-badges {
       display: flex;
-      align-items: flex-start;
+      justify-content: center;
       gap: 10px;
-      font-size: 13.5px;
+      margin-top: 14px;
+      font-size: 11px;
+    }
+
+    .meta-badges span {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 4px 10px;
+      border-radius: 6px;
       color: #d1d5db;
-      margin-bottom: 12px;
-      line-height: 1.4;
-    }
-
-    .item:last-child {
-      margin-bottom: 0;
-    }
-
-    .check {
-      color: #10b981;
-      font-weight: bold;
-      font-size: 15px;
     }
 
     /* Price Section */
     .price-box {
-      margin-bottom: 18px;
+      background: #111a14;
+      border: 1.5px solid var(--primary);
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+      margin-bottom: 20px;
     }
 
-    .old {
+    .price-old {
       font-size: 13px;
-      color: #6b7280;
+      color: var(--text-muted);
       text-decoration: line-through;
     }
 
-    .price {
+    .price-current {
       font-size: 34px;
       font-weight: 900;
-      color: #ffffff;
-      margin: 2px 0;
+      color: #fff;
+      margin: 2px 0 10px;
     }
 
+    .price-current span {
+      font-size: 14px;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* Action Button */
     .btn {
       display: block;
       width: 100%;
-      background: #10b981;
-      color: #ffffff;
+      background: var(--primary);
+      color: #fff;
       text-decoration: none;
-      font-size: 16.5px;
+      font-size: 16px;
       font-weight: 700;
-      padding: 15px 0;
+      padding: 14px 0;
       border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
       transition: background 0.2s;
     }
 
     .btn:active {
-      background: #059669;
+      background: var(--primary-hover);
     }
 
-    .note {
+    /* Section Cards */
+    .section-box {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 8px;
+    }
+
+    .features-list {
+      list-style: none;
+    }
+
+    .features-list li {
+      font-size: 13px;
+      color: #d1d5db;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.45;
+    }
+
+    .features-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .check {
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    /* Screenshots Mockup Cards */
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .shot-card {
+      background: #09120c;
+      border: 1px dashed var(--card-border);
+      border-radius: 8px;
+      padding: 12px 10px;
+      text-align: center;
+    }
+
+    .shot-card .tag-num {
+      font-size: 10.5px;
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .shot-card .shot-title {
+      font-size: 12px;
+      color: #e5e7eb;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    /* Testimonials */
+    .review-card {
+      background: #0c140f;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 10px;
+    }
+
+    .review-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .reviewer {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #e5e7eb;
+    }
+
+    .stars {
+      color: var(--gold);
       font-size: 11px;
-      color: #9ca3af;
-      margin-top: 10px;
     }
 
-    /* Sticky Bottom Button for Mobile */
+    .review-text {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Accordion FAQ */
+    details {
+      background: #0c140f;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      margin-bottom: 8px;
+      padding: 10px 12px;
+      cursor: pointer;
+    }
+
+    details:last-child {
+      margin-bottom: 0;
+    }
+
+    summary {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #e5e7eb;
+      outline: none;
+    }
+
+    details p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 8px;
+      line-height: 1.45;
+    }
+
+    /* Sticky Bottom Checkout Bar */
     .sticky-bar {
       position: fixed;
       bottom: 0;
       left: 0;
       width: 100%;
-      background: rgba(8, 13, 10, 0.95);
+      background: rgba(9, 14, 11, 0.95);
       backdrop-filter: blur(10px);
-      border-top: 1px solid #1b382b;
-      padding: 10px 16px;
+      border-top: 1px solid var(--card-border);
+      padding: 10px 14px;
       display: flex;
       justify-content: center;
-      z-index: 99;
+      z-index: 100;
     }
 
     .sticky-bar .btn {
-      max-width: 440px;
-      padding: 13px 0;
+      max-width: 480px;
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <div class="tag">⚡ INSTANT DIGITAL ACCESS</div>
-    <h1>The Viral <span>Creator Vault</span></h1>
-    <p class="sub">Instagram Reels & Shorts me views aur followers explode karne ka complete toolkit.</p>
+    <!-- Header -->
+    <div class="pill">⚡ Instant Digital PDF Guide</div>
+    <h1>Stop Scrolling. Start Going Viral with <span>The Creator Vault</span></h1>
+    <p class="subtext">1,000+ battle-tested viral hooks, CTAs, and plug-and-play script blueprints engineered to multiply views and followers.</p>
 
-    <!-- Landscape Card -->
-    <div class="banner">
-      <div class="banner-title">1000+ VIRAL ASSETS</div>
-      <div class="banner-meta">173 Pages • 10 Core Chapters • PDF Guide</div>
-    </div>
-
-    <!-- 4 Clean Points -->
-    <div class="checklist">
-      <div class="item">
-        <span class="check">✓</span>
-        <span><strong>500+ Viral Hooks:</strong> First 3 seconds me scroll rokne ke psychological triggers.</span>
-      </div>
-      <div class="item">
-        <span class="check">✓</span>
-        <span><strong>500+ High-Converting CTAs:</strong> Saves, shares aur followers boost karne ke frameworks.</span>
-      </div>
-      <div class="item">
-        <span class="check">✓</span>
-        <span><strong>100+ Ready Scripts:</strong> Plug-and-shoot combinations turant record karne ke liye.</span>
-      </div>
-      <div class="item">
-        <span class="check">✓</span>
-        <span><strong>Instant Lifetime Access:</strong> Mobile, Tablet aur PC par read karein.</span>
+    <!-- Landscape Hero Showcase -->
+    <div class="banner-card">
+      <h2>The Viral Creator Vault</h2>
+      <p>The Operating System for Modern Creators</p>
+      <div class="meta-badges">
+        <span>📄 173 Pages</span>
+        <span>⚡ 10 Chapters</span>
+        <span>🎯 1000+ Assets</span>
       </div>
     </div>
 
-    <!-- Pricing & Button -->
+    <!-- Pricing Box -->
     <div class="price-box">
-      <div class="old">Regular Price: ₹999</div>
-      <div class="price">₹99</div>
+      <div class="price-old">Regular Price: ₹999</div>
+      <div class="price-current">₹99 <span>(One-Time Payment)</span></div>
+      
+      <!-- Direct Cashfree Button -->
       <a href="https://payments.cashfree.com/forms/the-viral_creator-vault-99" class="btn" onclick="fbq('track', 'InitiateCheckout');">
         Get Instant Access @ ₹99
       </a>
-      <div class="note">⚡ Payment ke baad direct screen par PDF open ho jayegi</div>
+      <p style="font-size: 11px; color: var(--text-muted); margin-top: 8px;">⚡ Instant Screen Access + Backup Email Link</p>
     </div>
-  </div>
 
-  <!-- Mobile Sticky Button -->
-  <div class="sticky-bar">
-    <a href="https://payments.cashfree.com/forms/the-viral_creator-vault-99" class="btn" onclick="fbq('track', 'InitiateCheckout');">
-      Get Instant Access @ ₹99
-    </a>
-  </div>
+    <!-- What's Inside Section -->
+    <div class="section-box">
+      <div class="section-title">📦 What’s Inside The 173-Page Vault:</div>
+      <ul class="features-list">
+        <li><span class="check">✓</span> <strong>500+ High-Converting Hooks:</strong> Curiosity, fear, shock, and storytelling triggers to stop scrolls in the first 3 seconds.</li>
+        <li><span class="check">✓</span> <strong>500+ Actionable CTAs:</strong> Psychological frameworks engineered to double saves, shares, and profile follows.</li>
+        <li><span class="check">✓</span> <strong>100+ Plug-and-Shoot Combinations:</strong> Ready-to-record Hook + Content Flow + CTA scripts.</li>
+        <li><span class="check">✓</span> <strong>Niche Blueprints:</strong> Built for Tech, AI, Finance, Fitness, Business, and Faceless pages.</li>
+        <li><span class="check">✓</span> <strong>Lifetime Access:</strong> Clean PDF readable on Mobile, Tablet, or PC.</li>
+      </ul>
+    </div>
 
-</body>
-</html>
-t Hai Viral Creator World Me</span>
-        <span class="ch-num">Foundations</span>
-      </div>
-      <div class="chapter-item">
-        <span class="ch-name">Ch 02: Attention Hi Naya Gold Hai (3-Sec Rule)</span>
-        <span class="ch-num">Psychology</span>
-      </div>
-      <div class="chapter-item">
-        <span class="ch-name">Ch 03: 90% Creators Kyu Fail Ho Jaate Hain</span>
-        <span class="ch-num">Audit</span>
-      </div>
-      <div class="chapter-item">
-        <span class="ch-name">Ch 04: Viral Hooks Ki Psychology</span>
-        <span class="ch-num">Strategy</span>
-      </div>
-      <div class="chapter-item">
-        <span class="ch-name">Ch 05: 500 Viral Hooks Swipe File</span>
-        <span class="ch-num">500 Hooks</span>
-      </div>
-      <div class="chapter-item">
-        <span class="ch-name">Ch 06: Advanced Viral Hook Engine (10,000+ Hooks)</span>
-        <span class="ch-num">Framework</span>
-      </div>
-      <div class="chapter-item">
-        <span class="ch-name">Ch 07: High-Converting CTA Psychology</span>
-        <span class="ch-num">Conversion</span>
-      </div>
-      <div class="chapter-item">
-        <span class="ch-name">Ch 08: 500 High-Converting CTA Swipe File</span>
-        <span class="ch-num">500 CTAs</span>
-      </div>
-      <div class="chapter-item">
-        <span class="ch-name">Ch 09: 100 Ready-Made Hook + CTA Combinations</span>
-        <span class="ch-num">Plug & Shoot</span>
-      </div>
-      <div class="chapter-item">
-        <span class="ch-name">Ch 10: From Knowledge To Viral Success</span>
-        <span class="ch-num">Execution</span>
+    <!-- Look Inside / Screenshots Preview -->
+    <div class="section-box">
+      <div class="section-title">👀 Look Inside The Vault Blueprints:</div>
+      <div class="screenshot-grid">
+        <div class="shot-card">
+          <div class="tag-num">Phase 01</div>
+          <div class="shot-title">3-Sec Attention Engine</div>
+        </div>
+        <div class="shot-card">
+          <div class="tag-num">Phase 02</div>
+          <div class="shot-title">500 Hooks Swipe File</div>
+        </div>
+        <div class="shot-card">
+          <div class="tag-num">Phase 03</div>
+          <div class="shot-title">500 High-Converting CTAs</div>
+        </div>
+        <div class="shot-card">
+          <div class="tag-num">Phase 04</div>
+          <div class="shot-title">100 Full Reel Scripts</div>
+        </div>
       </div>
     </div>
 
-    <!-- Value Comparison -->
-    <div class="card">
-      <div class="card-title">💡 Why This Is A No-Brainer @ ₹99:</div>
-      <table class="compare-table">
-        <tr>
-          <th>Method</th>
-          <th>Cost</th>
-          <th>Time Taken</th>
-        </tr>
-        <tr>
-          <td>Script Copywriter</td>
-          <td>₹5,000+</td>
-          <td>3-5 Days</td>
-        </tr>
-        <tr>
-          <td>Random Trial & Error</td>
-          <td>₹2,000+ ads</td>
-          <td>6 Months</td>
-        </tr>
-        <tr class="highlight-row">
-          <td>The Creator Vault</td>
-          <td>₹99 (Lifetime)</td>
-          <td>Instant (5 Mins)</td>
-        </tr>
-      </table>
+    <!-- Creator Reviews -->
+    <div class="section-box">
+      <div class="section-title">⭐ Creator Feedback:</div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <span class="reviewer">Aman S. (Tech Creator)</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <p class="review-text">"Pehle scripting mein 1-2 ghante lagte the. In ready-made frameworks ki wajah se retention rate noticeably improve ho gaya. Best ₹99 spent."</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <span class="reviewer">Ritu P. (Finance & AI Page)</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <p class="review-text">"Is guide ke CTAs section ne meri reels ke saves double kar diye. No generic fluff, purely practical copy-paste templates hain."</p>
+      </div>
     </div>
 
-    <!-- FAQs -->
-    <div class="card">
-      <div class="card-title">❓ Frequently Asked Questions:</div>
+    <!-- FAQ Accordion -->
+    <div class="section-box">
+      <div class="section-title">❓ Frequently Asked Questions:</div>
+
       <details>
-        <summary>Payment ke baad PDF kaise milega?</summary>
-        <p>Jaise hi aap UPI se ₹99 pay karenge, Cashfree turant aapki mobile screen par Direct Google Drive PDF link open kar dega. Saath hi aapke email par bhi backup link chala jayega.</p>
+        <summary>Payment ke baad PDF download kaise milega?</summary>
+        <p>Jaise hi aap UPI se ₹99 pay karenge, Cashfree turant aapki screen par Direct Google Drive PDF link open kar dega. Saath hi confirmation backup aapke email par bhi mil jayega.</p>
       </details>
+
       <details>
-        <summary>Kya ye Faceless aur AI channels ke liye kaam karega?</summary>
-        <p>Haan! Isme specifically Faceless creators, AI tools aur niche-specific blueprints (Finance, Tech, Fitness, Motivation) ke liye ready-to-shoot frameworks diye gaye hain.</p>
+        <summary>Kya ye Faceless aur AI content ke liye useful hai?</summary>
+        <p>Bilkul! Isme dedicated frameworks hain jo faceless video editors aur AI creators ke liye optimize kiye gaye hain.</p>
       </details>
+
       <details>
-        <summary>Kya koi subscription ya recurring charge hai?</summary>
-        <p>Nahi. Yeh sirf ek baar ka ₹99 payment hai lifetime access ke sath.</p>
+        <summary>Kya iske baad koi hidden charges hain?</summary>
+        <p>Nahi. Yeh strictly one-time payment ₹99 hai lifetime access ke sath.</p>
       </details>
     </div>
 
-    <!-- Final CTA Push -->
-    <div style="text-align: center; margin-top: 10px; margin-bottom: 20px;">
-      <a href="https://payments.cashfree.com/forms/the-viral_creator-vault-99" class="cta-btn" onclick="fbq('track', 'InitiateCheckout');">
-        Unlock The 173-Page Vault @ ₹99
+    <!-- Bottom Action Button -->
+    <div style="margin: 16px 0;">
+      <a href="https://payments.cashfree.com/forms/the-viral_creator-vault-99" class="btn" onclick="fbq('track', 'InitiateCheckout');">
+        Get Instant Access @ ₹99 Now
       </a>
     </div>
 
   </div>
 
-  <!-- Mobile Sticky Footer Bar -->
-  <div class="sticky-footer">
-    <a href="https://payments.cashfree.com/forms/the-viral_creator-vault-99" class="cta-btn" onclick="fbq('track', 'InitiateCheckout');">
+  <!-- Sticky Bottom Checkout Button for Mobile -->
+  <div class="sticky-bar">
+    <a href="https://payments.cashfree.com/forms/the-viral_creator-vault-99" class="btn" onclick="fbq('track', 'InitiateCheckout');">
       Get Instant Access @ ₹99
     </a>
   </div>
