@@ -3,231 +3,381 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Viral Creator Vault</title>
+  <title>The Viral Creator Vault — Instant Access @ ₹99</title>
   <style>
     :root {
-      --bg: #090e0b;
-      --card: #111a14;
-      --border: #1b2e23;
+      --bg: #070d09;
+      --card-bg: #0f1812;
+      --border: #1a2f22;
       --primary: #10b981;
+      --primary-hover: #059669;
+      --accent: #34d399;
       --text: #f9fafb;
       --muted: #9ca3af;
       --gold: #f59e0b;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background: var(--bg); color: var(--text); display: flex; justify-content: center; padding: 16px 14px 90px; }
-    .wrap { max-width: 460px; width: 100%; }
+    body { background-color: var(--bg); color: var(--text); display: flex; justify-content: center; padding: 14px 12px 100px; }
+    .container { max-width: 480px; width: 100%; }
 
-    /* Top Banner Slot */
-    .banner-slot {
+    /* Landscape Banner with Embedded Text */
+    .hero-banner {
       width: 100%;
-      height: 180px;
-      border-radius: 12px;
-      overflow: hidden;
+      min-height: 200px;
+      border-radius: 14px;
       border: 1px solid var(--border);
-      background: #0f2419;
+      background: radial-gradient(circle at top right, #133824 0%, #06150c 100%);
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 22px 16px;
       margin-bottom: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
     }
-    .banner-slot img { width: 100%; height: 100%; object-fit: cover; }
+    .banner-badge {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid var(--primary);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+    .banner-title {
+      font-size: 23px;
+      font-weight: 900;
+      line-height: 1.25;
+      color: #ffffff;
+      letter-spacing: -0.3px;
+    }
+    .banner-title span { color: var(--primary); }
+    .banner-sub {
+      font-size: 13px;
+      color: #cbd5e1;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+    .banner-tags {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+      font-size: 11px;
+    }
+    .banner-tags span {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 3px 8px;
+      border-radius: 6px;
+      color: #d1d5db;
+    }
 
-    /* Title & Pricing */
-    h1 { font-size: 22px; font-weight: 800; text-align: center; margin-bottom: 6px; }
-    h1 span { color: var(--primary); }
-    p.sub { font-size: 13px; color: var(--muted); text-align: center; margin-bottom: 16px; }
-
-    .price-box {
-      background: var(--card);
+    /* Price Checkout Card */
+    .checkout-card {
+      background: var(--card-bg);
       border: 1.5px solid var(--primary);
-      border-radius: 12px;
-      padding: 14px;
+      border-radius: 14px;
+      padding: 16px;
       text-align: center;
       margin-bottom: 18px;
+      box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15);
     }
-    .old-price { font-size: 12px; color: var(--muted); text-decoration: line-through; }
-    .price { font-size: 32px; font-weight: 900; color: #fff; margin: 2px 0 8px; }
-
+    .price-strike { font-size: 13px; color: var(--muted); text-decoration: line-through; }
+    .price-deal { font-size: 36px; font-weight: 900; color: #fff; line-height: 1.1; margin: 4px 0 10px; }
+    .price-deal span { font-size: 14px; color: var(--accent); font-weight: 600; }
     .btn {
       display: block;
       width: 100%;
-      background: var(--primary);
+      background: linear-gradient(135deg, #10b981, #059669);
       color: #fff;
       text-decoration: none;
-      font-size: 16px;
-      font-weight: 700;
-      padding: 13px 0;
+      font-size: 16.5px;
+      font-weight: 800;
+      padding: 14px 0;
       border-radius: 10px;
       text-align: center;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+      cursor: pointer;
+    }
+    .btn:active { background: var(--primary-hover); transform: scale(0.99); }
+    .card-notice { font-size: 11px; color: var(--muted); margin-top: 8px; }
+
+    /* Clean Card Sections */
+    .content-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .box-heading {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
     }
 
-    /* Section Titles */
-    .sec-head { font-size: 14px; font-weight: 700; margin: 18px 0 10px; color: #e5e7eb; }
+    /* Core Features List (Instamojo Style) */
+    .features-list { list-style: none; }
+    .features-list li {
+      font-size: 13px;
+      color: #d1d5db;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.45;
+    }
+    .features-list li:last-child { margin-bottom: 0; }
+    .chk { color: var(--primary); font-weight: bold; font-size: 14px; }
 
-    /* Horizontal Swiper (Screenshots) */
-    .snap-slider {
+    /* E-Book Screenshots Carousel (3:4 Document Aspect Ratio) */
+    .slider-container {
       display: flex;
       gap: 12px;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
-      padding-bottom: 6px;
+      padding-bottom: 8px;
       scrollbar-width: none;
     }
-    .snap-slider::-webkit-scrollbar { display: none; }
-    .snap-item {
-      flex: 0 0 78%;
+    .slider-container::-webkit-scrollbar { display: none; }
+    .ebook-shot {
+      flex: 0 0 68%;
       scroll-snap-align: center;
-      height: 190px;
-      background: var(--card);
+      aspect-ratio: 3/4;
+      background: #06110a;
       border: 1px solid var(--border);
       border-radius: 10px;
       overflow: hidden;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
+      padding: 14px;
+      text-align: center;
     }
-    .snap-item img { width: 100%; height: 100%; object-fit: cover; }
+    .ebook-shot img { width: 100%; height: 100%; object-fit: contain; }
+    .ebook-shot-title { font-size: 12.5px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .ebook-shot-desc { font-size: 11px; color: var(--muted); }
 
-    /* Testimonials Carousel */
-    .testi-wrap { position: relative; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 14px; min-height: 120px; }
+    /* Swipeable Testimonials Carousel */
+    .testimonial-box {
+      position: relative;
+      background: #09130c;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      min-height: 115px;
+    }
     .testi-slide { display: none; }
     .testi-slide.active { display: block; }
-    .testi-top { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 12.5px; }
-    .testi-name { font-weight: 700; color: #fff; }
-    .testi-stars { color: var(--gold); font-size: 11px; }
-    .testi-txt { font-size: 12px; color: var(--muted); line-height: 1.4; }
-    
-    .nav-btns { display: flex; justify-content: flex-end; gap: 8px; margin-top: 10px; }
-    .nav-btn { background: #162c20; border: 1px solid var(--border); color: var(--primary); padding: 4px 10px; border-radius: 6px; cursor: pointer; font-size: 12px; }
+    .testi-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+    .reviewer-name { font-size: 12.5px; font-weight: 700; color: #fff; }
+    .star-score { color: var(--gold); font-size: 11px; }
+    .review-quote { font-size: 12px; color: #d1d5db; line-height: 1.45; }
+    .testi-controls { display: flex; justify-content: flex-end; gap: 8px; margin-top: 10px; }
+    .ctrl-btn { background: #12281b; border: 1px solid var(--border); color: var(--accent); padding: 4px 10px; border-radius: 6px; font-size: 11px; cursor: pointer; }
 
-    /* 3 FAQs */
-    details { background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 8px; padding: 10px 12px; cursor: pointer; }
-    summary { font-size: 12.5px; font-weight: 600; color: #e5e7eb; outline: none; }
+    /* FAQs */
+    details { background: #09130c; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 8px; padding: 10px 12px; cursor: pointer; }
+    details:last-child { margin-bottom: 0; }
+    summary { font-size: 12.5px; font-weight: 700; color: #e5e7eb; outline: none; }
     details p { font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.4; }
 
-    /* Sticky Bottom Button */
-    .sticky-bar {
+    /* Professional Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 24px;
+      padding-top: 18px;
+      text-align: center;
+      font-size: 11px;
+      color: #64748b;
+      line-height: 1.6;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: 11px; }
+    .footer-links a:hover { color: var(--primary); }
+    .footer-disclaimer { font-size: 10px; color: #475569; margin-top: 6px; }
+
+    /* Mobile Sticky Checkout Bar */
+    .sticky-checkout {
       position: fixed;
       bottom: 0;
       left: 0;
       width: 100%;
-      background: rgba(9, 14, 11, 0.95);
+      background: rgba(7, 13, 9, 0.95);
+      backdrop-filter: blur(10px);
       border-top: 1px solid var(--border);
       padding: 10px 14px;
       display: flex;
       justify-content: center;
-      z-index: 99;
+      z-index: 100;
     }
-    .sticky-bar .btn { max-width: 460px; }
+    .sticky-checkout .btn { max-width: 480px; }
   </style>
 </head>
 <body>
 
-  <div class="wrap">
-    
-    <!-- 1. LANDSCAPE BANNER -->
-    <div class="banner-slot">
-      <!-- Apne Banner Image ka URL yahan daalein (src) -->
-      <img src="https://placehold.co/900x400/0f2419/34d399?text=The+Viral+Creator+Vault" alt="Banner">
-    </div>
+  <div class="container">
 
-    <!-- Title & Pricing -->
-    <h1>The Viral <span>Creator Vault</span></h1>
-    <p class="sub">173 Pages • 1000+ Hooks, CTAs & Ready Scripts</p>[span_0](start_span)[span_0](end_span)
-
-    <div class="price-box">
-      <div class="old-price">Regular Price: ₹999</div>
-      <div class="price">₹99</div>
-      <a href="https://payments.cashfree.com/forms/the-viral_creator-vault-99" class="btn">Get Instant Access @ ₹99</a>
-    </div>
-
-    <!-- 2. SWIPABLE SCREENSHOTS (3 SLIDES) -->
-    <div class="sec-head">👀 Look Inside The Vault (Swipe 👉)</div>
-    <div class="snap-slider">
-      <div class="snap-item">
-        <img src="https://placehold.co/600x450/111a14/10b981?text=Preview+1%3A+500+Viral+Hooks" alt="Screenshot 1">
-      </div>
-      <div class="snap-item">
-        <img src="https://placehold.co/600x450/111a14/10b981?text=Preview+2%3A+500+High-Converting+CTAs" alt="Screenshot 2">
-      </div>
-      <div class="snap-item">
-        <img src="https://placehold.co/600x450/111a14/10b981?text=Preview+3%3A+100+Reel+Scripts" alt="Screenshot 3">
+    <!-- 1. LANDSCAPE BANNER WITH TEXT OVERLAY -->
+    <div class="hero-banner">
+      <div class="banner-badge">⚡ The Operating System for Creators</div>
+      <h1 class="banner-title">The Viral <span>Creator Vault</span></h1>
+      <p class="banner-sub">1000+ Viral Hooks, High-Converting CTAs & Ready Scripts</p>
+      <div class="banner-tags">
+        <span>📄 173 Pages</span>
+        <span>⚡ 10 Chapters</span>
+        <span>🎯 Lifetime Access</span>
       </div>
     </div>
 
-    <!-- 3. TESTIMONIALS WITH BUTTONS (3 REVIEWS) -->
-    <div class="sec-head">⭐ Creator Reviews</div>
-    <div class="testi-wrap">
-      <div class="testi-slide active">
-        <div class="testi-top">
-          <span class="testi-name">Aman S. (Tech Creator)</span>
-          <span class="testi-stars">★★★★★</span>
+    <!-- 2. PRICING & CHECKOUT CARD -->
+    <div class="checkout-card">
+      <div class="price-strike">Regular Price: ₹999</div>
+      <div class="price-deal">₹99 <span>(One-Time Payment)</span></div>
+      <a href="https://payments.cashfree.com/forms/the-viral_creator-vault-99" class="btn">
+        Get Instant Access @ ₹99
+      </a>
+      <p class="card-notice">⚡ Instant PDF delivery on screen + registered email backup</p>
+    </div>
+
+    <!-- 3. DETAILED FEATURES (INSTAMOJO SMART PAGE ALIGNED) -->
+    <div class="content-box">
+      <div class="box-heading">📦 What's Included In The Complete Guide:</div>
+      <ul class="features-list">
+        <li><span class="chk">✓</span> <strong>500+ High-Converting Hooks:</strong> Curiosity, shock, open loops, aur storytelling triggers jo pehle 3 seconds me audience ko scroll karne se rok dete hain.</li>
+        <li><span class="chk">✓</span> <strong>500+ High-Converting CTAs:</strong> Audience ko actions (Follow, Save, Share, DM) lene par guide karne wale exact swipe templates.</li>
+        <li><span class="chk">✓</span> <strong>100 Ready-Made Combinations:</strong> Plug-and-shoot frameworks (Hook + Content Flow + CTA) bina kisi script confusion ke.</li>
+        <li><span class="chk">✓</span> <strong>10-Chapter Core Blueprint:</strong> Attention Economy, Human Psychology, Faceless Reels, aur AI Workflows ka complete roadmap.</li>
+        <li><span class="chk">✓</span> <strong>Direct Device Access:</strong> Smartphone, Tablet aur Laptop par readable complete high-resolution PDF.</li>
+      </ul>
+    </div>
+
+    <!-- 4. E-BOOK PREVIEWS / SCREENSHOTS (3:4 DOCUMENT RATIO) -->
+    <div class="box-heading" style="border:none; margin-bottom: 8px;">👀 Look Inside The Pages (Swipe 👉)</div>
+    <div class="slider-container" style="margin-bottom: 16px;">
+      <div class="ebook-shot">
+        <!-- Replace src with your Chapter/Page screenshot -->
+        <img src="https://placehold.co/450x600/0f2419/34d399?text=Ch+05%3A+500+Viral+Hooks+Swipe+File" alt="Page Preview 1">
+      </div>
+      <div class="ebook-shot">
+        <!-- Replace src with your Chapter/Page screenshot -->
+        <img src="https://placehold.co/450x600/0f2419/34d399?text=Ch+08%3A+500+High-Converting+CTAs" alt="Page Preview 2">
+      </div>
+      <div class="ebook-shot">
+        <!-- Replace src with your Chapter/Page screenshot -->
+        <img src="https://placehold.co/450x600/0f2419/34d399?text=Ch+09%3A+100+Ready-Made+Combinations" alt="Page Preview 3">
+      </div>
+    </div>
+
+    <!-- 5. TESTIMONIALS (WITH CONTROLS) -->
+    <div class="content-box">
+      <div class="box-heading">⭐ Verified Creator Feedback:</div>
+      <div class="testimonial-box">
+        <div class="testi-slide active">
+          <div class="testi-row">
+            <span class="reviewer-name">Aman S. (Tech & AI Creator)</span>
+            <span class="star-score">★★★★★</span>
+          </div>
+          <p class="review-quote">"Scripting me ghanton lagte the. Iske hook engines se retention drop kaafi reduce ho gaya. ₹99 me pure value pack hai."</p>
         </div>
-        <p class="testi-txt">"Hook writing me bohot time lagta tha. Iske frameworks se pehle 3 second ka drop rate kaafi kam ho gaya. ₹99 me pure value."</p>
-      </div>
 
-      <div class="testi-slide">
-        <div class="testi-top">
-          <span class="testi-name">Ritu P. (Finance & AI)</span>
-          <span class="testi-stars">★★★★★</span>
+        <div class="testi-slide">
+          <div class="testi-row">
+            <span class="reviewer-name">Ritu P. (Finance Channel)</span>
+            <span class="star-score">★★★★★</span>
+          </div>
+          <p class="review-quote">"CTA frameworks ki wajah se reels par saves aur profile follows instantly scale huye. Direct no-fluff templates hain."</p>
         </div>
-        <p class="testi-txt">"Iske CTA section ne meri reels ke saves double kar diye. No generic motivation, direct actionable copy-paste templates hain."</p>
-      </div>
 
-      <div class="testi-slide">
-        <div class="testi-top">
-          <span class="testi-name">Kunal M. (Faceless Page)</span>
-          <span class="testi-stars">★★★★★</span>
+        <div class="testi-slide">
+          <div class="testi-row">
+            <span class="reviewer-name">Kunal M. (Faceless Page)</span>
+            <span class="star-score">★★★★★</span>
+          </div>
+          <p class="review-quote">"Faceless creators ke liye 100 plug-and-play combinations sabse best part laga. Video ideas sochna band, direct execution chalu."</p>
         </div>
-        <p class="testi-txt">"Faceless channel ke liye scripts banana ab super easy hai. 100 plug-and-play combinations sabse best part laga."</p>
-      </div>
 
-      <div class="nav-btns">
-        <button class="nav-btn" onclick="prevSlide()">❮ Prev</button>
-        <button class="nav-btn" onclick="nextSlide()">Next ❯</button>
+        <div class="testi-controls">
+          <button class="ctrl-btn" onclick="prevReview()">❮ Prev</button>
+          <button class="ctrl-btn" onclick="nextReview()">Next ❯</button>
+        </div>
       </div>
     </div>
 
-    <!-- 4. SIRF 3 FAQS -->
-    <div class="sec-head">❓ FAQs</div>
-    <details>
-      <summary>Payment ke baad PDF kaise milega?</summary>
-      <p>UPI payment complete hote hi screen par direct Google Drive link open ho jayega. Saath hi aapke email par bhi backup bhej diya jayega.</p>
-    </details>
+    <!-- 6. CRISP FAQS -->
+    <div class="content-box">
+      <div class="box-heading">❓ Frequently Asked Questions:</div>
+      <details>
+        <summary>Payment ke baad PDF download kaise milega?</summary>
+        <p>Jaise hi aap UPI se ₹99 pay karenge, Cashfree turant aapki screen par Direct Google Drive PDF link open kar dega. Saath hi registered email par backup link chala jayega.</p>
+      </details>
 
-    <details>
-      <summary>Kya ye beginners ke liye hai?</summary>
-      <p>Haan, chahe aap personal brand bana rahe ho ya faceless AI page, isme direct copy-paste templates diye gaye hain.</p>
-    </details>
+      <details>
+        <summary>Kya ye Faceless aur AI creators ke liye useful hai?</summary>
+        <p>Bilkul! Isme specifically Faceless creators, AI tools, aur zero-camera setups ke liye tested formulas shamil hain.</p>
+      </details>
 
-    <details>
-      <summary>Kya koi hidden charge ya monthly fee hai?</summary>
-      <p>Nahi. Yeh sirf ek baar ka ₹99 payment hai lifetime access ke sath.</p>
-    </details>
+      <details>
+        <summary>Kya koi monthly subscription ya renewal fee hai?</summary>
+        <p>Nahi. Yeh strictly one-time payment ₹99 hai lifetime access ke sath.</p>
+      </details>
+    </div>
+
+    <!-- 7. PROFESSIONAL FOOTER -->
+    <footer>
+      <div class="footer-links">
+        <a href="#terms">Terms & Conditions</a> • 
+        <a href="#privacy">Privacy Policy</a> • 
+        <a href="#refund">Refund Policy</a> • 
+        <a href="#contact">Contact Support</a>
+      </div>
+      <p>© 2026 The Viral Creator Vault. All Rights Reserved.</p>
+      <p class="footer-disclaimer">Disclaimer: This product is not affiliated with or endorsed by Meta, Instagram, or Facebook. All trademarks belong to their respective owners.</p>
+    </footer>
 
   </div>
 
-  <!-- Sticky Mobile CTA -->
-  <div class="sticky-bar">
-    <a href="https://payments.cashfree.com/forms/the-viral_creator-vault-99" class="btn">Get Instant Access @ ₹99</a>
+  <!-- Mobile Sticky Checkout Bar -->
+  <div class="sticky-checkout">
+    <a href="https://payments.cashfree.com/forms/the-viral_creator-vault-99" class="btn">
+      Get Instant Access @ ₹99
+    </a>
   </div>
 
-  <!-- Carousel Script -->
+  <!-- Review Slider Script -->
   <script>
-    let current = 0;
+    let currentIdx = 0;
     const slides = document.querySelectorAll('.testi-slide');
-    function showSlide(idx) {
+    function showReview(idx) {
       slides.forEach((s, i) => s.classList.toggle('active', i === idx));
     }
-    function nextSlide() {
-      current = (current + 1) % slides.length;
-      showSlide(current);
+    function nextReview() {
+      currentIdx = (currentIdx + 1) % slides.length;
+      showReview(currentIdx);
     }
-    function prevSlide() {
-      current = (current - 1 + slides.length) % slides.length;
-      showSlide(current);
+    function prevReview() {
+      currentIdx = (currentIdx - 1 + slides.length) % slides.length;
+      showReview(currentIdx);
     }
   </script>
 
