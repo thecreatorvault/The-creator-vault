@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Viral Creator Vault - Get Instant Access @ ₹99</title>
-
+  <title>The Viral Creator Vault — Instant Access @ ₹99</title>
+  
   <!-- Meta Pixel Code -->
   <script>
     !function(f,b,e,v,n,t,s)
@@ -16,70 +16,448 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     
-    // YAHAN APNA PIXEL ID DAALEIN
+    // REPLACE WITH YOUR ACTUAL META PIXEL ID
     fbq('init', 'YOUR_PIXEL_ID_HERE');
     fbq('track', 'PageView');
   </script>
   <!-- End Meta Pixel Code -->
 
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background-color: #0b0f19; color: #f3f4f6; display: flex; justify-content: center; padding: 20px 14px 100px; }
-    .container { max-width: 480px; width: 100%; text-align: center; }
-    .badge { display: inline-block; background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid #3b82f6; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 14px; }
-    h1 { font-size: 26px; line-height: 1.25; font-weight: 800; margin-bottom: 12px; color: #ffffff; }
-    h1 span { color: #38bdf8; }
-    p.subtext { font-size: 14px; color: #9ca3af; margin-bottom: 22px; line-height: 1.5; }
-    .card { background: #111827; border: 1px solid #1f2937; border-radius: 14px; padding: 18px; text-align: left; margin-bottom: 18px; }
-    .card h3 { font-size: 16px; color: #f9fafb; margin-bottom: 12px; border-bottom: 1px solid #1f2937; padding-bottom: 8px; }
-    ul { list-style: none; }
-    li { font-size: 13.5px; color: #d1d5db; margin-bottom: 10px; display: flex; align-items: flex-start; gap: 8px; line-height: 1.4; }
-    li span { color: #10b981; font-weight: bold; }
-    .price-box { background: linear-gradient(145deg, #1e1b4b, #172554); border: 1px solid #3b82f6; border-radius: 12px; padding: 16px; margin-bottom: 20px; }
-    .old-price { font-size: 14px; color: #9ca3af; text-decoration: line-through; }
-    .new-price { font-size: 32px; font-weight: 800; color: #38bdf8; margin: 4px 0; }
-    .btn { display: block; width: 100%; background: #2563eb; color: #ffffff; text-decoration: none; font-size: 17px; font-weight: 700; padding: 14px 0; border-radius: 10px; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4); text-align: center; }
-    .btn:hover { background: #1d4ed8; }
-    .sticky-bottom { position: fixed; bottom: 0; left: 0; width: 100%; background: #0b0f19; border-top: 1px solid #1f2937; padding: 12px 16px; display: flex; justify-content: center; z-index: 100; }
-    .sticky-bottom .btn { max-width: 480px; }
-    .guarantee { font-size: 11px; color: #9ca3af; margin-top: 8px; }
+    :root {
+      --bg-dark: #070d0a;
+      --card-bg: #0f1c16;
+      --card-border: #1b382b;
+      --primary: #10b981;
+      --primary-hover: #059669;
+      --accent: #34d399;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      padding: 16px 14px 110px;
+    }
+
+    .container {
+      max-width: 520px;
+      width: 100%;
+    }
+
+    /* Glow Effects */
+    .glow-header {
+      text-align: center;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 30px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      animation: pulse 2s infinite ease-in-out;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 27px;
+      line-height: 1.25;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+
+    h1 span {
+      background: linear-gradient(135deg, #10b981, #34d399);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p.subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Landscape Banner */
+    .banner {
+      width: 100%;
+      height: 190px;
+      border-radius: 14px;
+      border: 1px solid var(--card-border);
+      background: linear-gradient(145deg, #092116, #05140d);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      margin: 18px 0;
+      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.15);
+    }
+
+    .banner-overlay {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      background: rgba(52, 211, 153, 0.2);
+      filter: blur(50px);
+      border-radius: 50%;
+    }
+
+    .banner-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .banner-title {
+      font-size: 22px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .banner-tag {
+      font-size: 13px;
+      color: var(--accent);
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    /* Price Card */
+    .price-box {
+      background: linear-gradient(145deg, #0f241a, #0b1a13);
+      border: 1px solid var(--accent);
+      border-radius: 14px;
+      padding: 18px;
+      text-align: center;
+      margin-bottom: 22px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .strike-price {
+      font-size: 14px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .active-price {
+      font-size: 34px;
+      font-weight: 900;
+      color: #ffffff;
+      margin: 4px 0;
+    }
+
+    .active-price span {
+      font-size: 14px;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* Button */
+    .cta-btn {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 16.5px;
+      font-weight: 800;
+      padding: 14px 0;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+      transition: transform 0.15s ease, background 0.2s ease;
+    }
+
+    .cta-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* Cards */
+    .section-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .feature-list {
+      list-style: none;
+    }
+
+    .feature-list li {
+      font-size: 13.5px;
+      color: #d1d5db;
+      margin-bottom: 11px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.45;
+    }
+
+    .check-icon {
+      color: var(--accent);
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    /* Preview Screens Mockups */
+    .preview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .preview-box {
+      background: #08130e;
+      border: 1px dashed var(--card-border);
+      border-radius: 10px;
+      padding: 14px 10px;
+      text-align: center;
+      font-size: 12px;
+      color: #9ca3af;
+    }
+
+    .preview-box strong {
+      display: block;
+      color: var(--accent);
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    /* Testimonials */
+    .testimonial {
+      background: #091711;
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 10px;
+    }
+
+    .testimonial-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12.5px;
+      margin-bottom: 6px;
+    }
+
+    .user-name {
+      font-weight: 700;
+      color: #e5e7eb;
+    }
+
+    .stars {
+      color: #f59e0b;
+      letter-spacing: 1px;
+      font-size: 11px;
+    }
+
+    .testimonial p {
+      font-size: 12.5px;
+      color: #9ca3af;
+      line-height: 1.4;
+    }
+
+    /* Accordion FAQs */
+    details {
+      background: #091711;
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      margin-bottom: 8px;
+      padding: 10px 14px;
+      cursor: pointer;
+    }
+
+    summary {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #e5e7eb;
+      outline: none;
+    }
+
+    details p {
+      margin-top: 8px;
+      font-size: 12.5px;
+      color: #9ca3af;
+      line-height: 1.45;
+    }
+
+    /* Sticky Bottom */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(7, 13, 10, 0.95);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--card-border);
+      padding: 12px 16px;
+      display: flex;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .sticky-bar .cta-btn {
+      max-width: 520px;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.03); opacity: 0.85; }
+    }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <div class="badge">🔥 Over 1,000+ Viral Assets</div>
-    <h1>Stop Guessing. Start Going Viral with <span>The Creator Vault</span></h1>
-    <p class="subtext">The ultimate plug-and-play toolkit of hooks, CTAs, and frameworks engineered for instant reach and follower growth.</p>
-
-    <div class="price-box">
-      <div class="old-price">Regular Price: ₹999</div>
-      <div class="new-price">₹99 <span style="font-size: 14px; font-weight: 400; color: #9ca3af;">(One-Time Payment)</span></div>
-      <div class="guarantee">⚡ Instant Access Link Delivered on Payment</div>
+    <!-- Header -->
+    <div class="glow-header">
+      <div class="pill-badge">⚡ Instant Creator Toolkit</div>
+      <h1>Master The Algorithm With <span>The Creator Vault</span></h1>
+      <p class="subtitle">1,000+ battle-tested viral hooks, CTAs, and frameworks engineered to explode engagement and turn views into followers.</p>
     </div>
 
-    <!-- CASHFREE PAYMENT LINK BUTTON -->
-    <a href="YOUR_CASHFREE_PAYMENT_LINK_HERE" class="btn" onclick="fbq('track', 'InitiateCheckout');">Get Instant Access @ ₹99</a>
+    <!-- Landscape Mockup Banner -->
+    <div class="banner">
+      <div class="banner-overlay"></div>
+      <div class="banner-content">
+        <div class="banner-title">Viral Creator Vault</div>
+        <div class="banner-tag">173 Pages • 1000+ Templates • PDF Guide</div>
+      </div>
+    </div>
 
-    <div class="card" style="margin-top: 22px;">
-      <h3>Inside The 173-Page Digital Vault:</h3>
-      <ul>
-        <li><span>✓</span> <strong>500+ High-Converting Hooks</strong> (Curiosity, shock, and storytelling triggers)</li>
-        <li><span>✓</span> <strong>500+ Actionable CTAs</strong> (Built to explode saves, shares, and comments)</li>
-        <li><span>✓</span> <strong>100+ Plug-and-Play Combinations</strong> (Ready to record scripts)</li>
-        <li><span>✓</span> <strong>Niche Blueprints</strong> (AI, Business, Fitness, Finance & Freelancing)</li>
-        <li><span>✓</span> <strong>Direct PDF Download</strong> (Lifetime access on mobile, tablet & PC)</li>
+    <!-- Pricing Box -->
+    <div class="price-box">
+      <div class="strike-price">Regular Price: ₹999</div>
+      <div class="active-price">₹99 <span>(One-Time Payment)</span></div>
+      <p style="font-size: 12px; color: var(--accent); margin-bottom: 12px;">⚡ Limited Early-Access Offer | Lifetime Access</p>
+      
+      <!-- BUTTON: REPLACE LINK -->
+      <a href="https://payments.cashfree.com/forms/the-viral_creator-vault-99" class="cta-btn" onclick="fbq('track', 'InitiateCheckout');">
+        Get Instant Access @ ₹99
+      </a>
+    </div>
+
+    <!-- Inside the Vault -->
+    <div class="section-card">
+      <div class="section-title">📦 What’s Packed Inside The Guide:</div>
+      <ul class="feature-list">
+        <li><span class="check-icon">✓</span> <strong>500+ High-Converting Hooks:</strong> Psychological pattern-interrupt triggers that make people stop scrolling within the first 3 seconds.</li>
+        <li><span class="check-icon">✓</span> <strong>500+ Viral Call-to-Actions (CTAs):</strong> Engineered to drive massive saves, shares, comments, and direct profile visits.</li>
+        <li><span class="check-icon">✓</span> <strong>100+ Plug-and-Play Script Frameworks:</strong> Ready-made Hook + Body + CTA combinations you can record right away.</li>
+        <li><span class="check-icon">✓</span> <strong>Niche-Specific Blueprints:</strong> Tailored for AI, Tech, Finance, Fitness, Freelancing, and Business pages.</li>
+        <li><span class="check-icon">✓</span> <strong>Device Friendly:</strong> Read cleanly on Smartphone, Tablet, or Laptop with instant lifetime access.</li>
       </ul>
     </div>
 
-    <div class="card">
-      <h3>Instant Delivery:</h3>
-      <p style="font-size: 13px; color: #9ca3af; line-height: 1.5;">Payment hote hi aapki screen par direct Google Drive download link khul jayega, aur aapke registered email par bhi confirmation access bhej diya jayega.</p>
+    <!-- Vault Screenshots / Peek Inside -->
+    <div class="section-card">
+      <div class="section-title">👀 Peek Inside The Blueprints:</div>
+      <div class="preview-grid">
+        <div class="preview-box">
+          <strong>Section 01</strong>
+          Curiosity & Shock Hooks (Stop-Rate Boosters)
+        </div>
+        <div class="preview-box">
+          <strong>Section 02</strong>
+          Save-Boosting CTAs (Algorithm Trigger)
+        </div>
+        <div class="preview-box">
+          <strong>Section 03</strong>
+          Full Reel Scripts (Plug & Shoot Outlines)
+        </div>
+        <div class="preview-box">
+          <strong>Section 04</strong>
+          Faceless Channel & AI Growth Playbook
+        </div>
+      </div>
     </div>
+
+    <!-- Testimonials -->
+    <div class="section-card">
+      <div class="section-title">⭐ Verified Creator Feedback:</div>
+      
+      <div class="testimonial">
+        <div class="testimonial-header">
+          <span class="user-name">Aman S. (Tech Creator)</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <p>"Scripting reels used to take me 2 hours. Using these hook templates, my retention rate jumped noticeably in the first 3 days. Total value for ₹99."</p>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-header">
+          <span class="user-name">Pooja V. (Finance Page)</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <p>"The CTAs section alone doubled my saves. Most ebooks online are generic fluff, but this is a pure practical swipe file."</p>
+      </div>
+    </div>
+
+    <!-- FAQs -->
+    <div class="section-card">
+      <div class="section-title">❓ Frequently Asked Questions:</div>
+      
+      <details>
+        <summary>How will I get access after payment?</summary>
+        <p>Instant delivery! The moment UPI payment completes, your screen automatically opens the direct PDF download link. A confirmation backup is also sent to your email.</p>
+      </details>
+
+      <details>
+        <summary>Is this beginner friendly?</summary>
+        <p>Yes. Whether you are building a personal face brand or a faceless AI niche theme page, you just have to copy, fill your topic, and post.</p>
+      </details>
+
+      <details>
+        <summary>Are there any hidden recurring fees?</summary>
+        <p>No. It is a strictly one-time payment of ₹99 for lifetime access.</p>
+      </details>
+    </div>
+
   </div>
 
-  <div class="sticky-bottom">
-    <a href="YOUR_CASHFREE_PAYMENT_LINK_HERE" class="btn" onclick="fbq('track', 'InitiateCheckout');">Get Instant Access @ ₹99</a>
+  <!-- Sticky Mobile Button -->
+  <div class="sticky-bar">
+    <a href="https://payments.cashfree.com/forms/the-viral_creator-vault-99" class="cta-btn" onclick="fbq('track', 'InitiateCheckout');">
+      Get Instant Access @ ₹99
+    </a>
   </div>
 
 </body>
