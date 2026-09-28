@@ -1,406 +1,239 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Viral Creator Vault | Dominate Social Media</title>
-  <!-- Google Fonts & Lucide Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest"></script>
-
+  <title>The Viral Creator Vault</title>
   <style>
     :root {
-      --bg-dark: #08090a;
-      --bg-card: rgba(18, 22, 20, 0.7);
-      --bg-card-hover: rgba(26, 33, 29, 0.9);
-      --neon-green: #00ff66;
-      --neon-glow: rgba(0, 255, 102, 0.35);
-      --border-green: rgba(0, 255, 102, 0.2);
-      --text-main: #f3f4f6;
-      --text-muted: #9ca3af;
-      --font: 'Plus Jakarta Sans', sans-serif;
+      --bg: #090e0b;
+      --card: #111a14;
+      --border: #1b2e23;
+      --primary: #10b981;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --gold: #f59e0b;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: var(--font);
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background: var(--bg); color: var(--text); display: flex; justify-content: center; padding: 16px 14px 90px; }
+    .wrap { max-width: 460px; width: 100%; }
 
-    body {
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      overflow-x: hidden;
-      padding-bottom: 80px; /* Space for sticky bar */
-    }
-
-    /* Ambient Glow Backgrounds */
-    .glow-sphere {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(120px);
-      z-index: 0;
-      pointer-events: none;
-    }
-    .glow-1 {
-      top: -100px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 500px;
-      height: 400px;
-      background: radial-gradient(circle, var(--neon-glow), transparent 70%);
-    }
-    .glow-2 {
-      top: 1400px;
-      right: -100px;
-      width: 450px;
-      height: 450px;
-      background: radial-gradient(circle, rgba(0, 255, 102, 0.15), transparent 70%);
-    }
-
-    .container {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 20px;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Badges */
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(0, 255, 102, 0.1);
-      border: 1px solid var(--border-green);
-      color: var(--neon-green);
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    /* Header / Hero Section */
-    .hero {
-      text-align: center;
-      padding: 60px 0 40px;
-    }
-    .hero h1 {
-      font-size: clamp(32px, 6vw, 56px);
-      font-weight: 900;
-      line-height: 1.15;
-      letter-spacing: -1px;
-      margin-bottom: 18px;
-    }
-    .hero h1 span {
-      background: linear-gradient(135deg, #ffffff 40%, var(--neon-green) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero p {
-      color: var(--text-muted);
-      font-size: clamp(16px, 2.5vw, 19px);
-      max-width: 720px;
-      margin: 0 auto 30px;
-      line-height: 1.6;
-    }
-
-    /* CTA Button Styles */
-    .btn-cta {
-      display: inline-flex;
+    /* Top Banner Slot */
+    .banner-slot {
+      width: 100%;
+      height: 180px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #0f2419;
+      display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      background: var(--neon-green);
-      color: #031408;
-      font-weight: 800;
-      font-size: 18px;
-      padding: 18px 36px;
+      margin-bottom: 16px;
+    }
+    .banner-slot img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* Title & Pricing */
+    h1 { font-size: 22px; font-weight: 800; text-align: center; margin-bottom: 6px; }
+    h1 span { color: var(--primary); }
+    p.sub { font-size: 13px; color: var(--muted); text-align: center; margin-bottom: 16px; }
+
+    .price-box {
+      background: var(--card);
+      border: 1.5px solid var(--primary);
       border-radius: 12px;
-      text-decoration: none;
-      box-shadow: 0 0 30px var(--neon-glow);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      border: none;
-      cursor: pointer;
-    }
-    .btn-cta:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 0 45px rgba(0, 255, 102, 0.6);
-      background: #1aff75;
-    }
-    .price-strike {
-      text-decoration: line-through;
-      color: rgba(3, 20, 8, 0.6);
-      font-weight: 600;
-      font-size: 15px;
-      margin-left: 6px;
-    }
-
-    /* Swipable Screenshot Showcase (Banner 1) */
-    .showcase-section {
-      margin: 40px 0 70px;
-    }
-    .section-title {
+      padding: 14px;
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 18px;
     }
-    .section-title h2 {
-      font-size: 30px;
-      font-weight: 800;
-    }
-    .section-title span {
-      color: var(--neon-green);
+    .old-price { font-size: 12px; color: var(--muted); text-decoration: line-through; }
+    .price { font-size: 32px; font-weight: 900; color: #fff; margin: 2px 0 8px; }
+
+    .btn {
+      display: block;
+      width: 100%;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 13px 0;
+      border-radius: 10px;
+      text-align: center;
     }
 
-    .carousel-container {
-      position: relative;
-    }
-    .carousel-track {
+    /* Section Titles */
+    .sec-head { font-size: 14px; font-weight: 700; margin: 18px 0 10px; color: #e5e7eb; }
+
+    /* Horizontal Swiper (Screenshots) */
+    .snap-slider {
       display: flex;
-      gap: 20px;
+      gap: 12px;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
-      padding: 10px 0 20px;
+      padding-bottom: 6px;
       scrollbar-width: none;
     }
-    .carousel-track::-webkit-scrollbar {
-      display: none;
-    }
-    .preview-card {
-      flex: 0 0 280px;
+    .snap-slider::-webkit-scrollbar { display: none; }
+    .snap-item {
+      flex: 0 0 78%;
       scroll-snap-align: center;
-      background: var(--bg-card);
-      border: 1px solid var(--border-green);
-      border-radius: 16px;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      backdrop-filter: blur(12px);
-      transition: transform 0.3s ease;
-    }
-    .preview-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--neon-green);
-    }
-    .preview-placeholder {
-      width: 100%;
-      height: 380px;
-      background: #0f1411;
-      border: 1px dashed rgba(0, 255, 102, 0.3);
-      border-radius: 12px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      color: var(--neon-green);
-      text-align: center;
-      padding: 15px;
-    }
-    .preview-placeholder img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: 190px;
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: 10px;
-    }
-    .preview-card h4 {
-      margin-top: 14px;
-      font-size: 15px;
-      font-weight: 700;
-      color: #fff;
-    }
-
-    /* Product Details / Features Grid */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      margin: 40px 0 70px;
-    }
-    .feat-card {
-      background: var(--bg-card);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      padding: 28px;
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
-      position: relative;
       overflow: hidden;
-    }
-    .feat-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .feat-card:hover {
-      border-color: var(--border-green);
-      transform: translateY(-4px);
-    }
-    .feat-card:hover::before {
-      opacity: 1;
-    }
-    .feat-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 10px;
-      background: rgba(0, 255, 102, 0.1);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--neon-green);
-      margin-bottom: 18px;
     }
-    .feat-card h3 {
-      font-size: 20px;
-      margin-bottom: 10px;
-      color: #fff;
-    }
-    .feat-card p {
-      color: var(--text-muted);
-      font-size: 15px;
-      line-height: 1.6;
-    }
+    .snap-item img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* Testimonials Horizontal Slider */
-    .testimonial-section {
-      margin: 60px 0 70px;
-    }
-    .testi-wrapper {
-      position: relative;
-      overflow: hidden;
-      border-radius: 20px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-green);
-      padding: 40px 30px;
-    }
-    .testi-track {
-      display: flex;
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .testi-slide {
-      min-width: 100%;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .testi-quote {
-      font-size: clamp(17px, 2.5vw, 22px);
-      line-height: 1.5;
-      color: #e5e7eb;
-      font-weight: 500;
-    }
-    .testi-user {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-    .avatar {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: rgba(0, 255, 102, 0.2);
-      border: 2px solid var(--neon-green);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      color: var(--neon-green);
-    }
-    .testi-controls {
-      display: flex;
-      justify-content: flex-end;
-      gap: 12px;
-      margin-top: 25px;
-    }
-    .ctrl-btn {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-green);
-      color: var(--neon-green);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .ctrl-btn:hover {
-      background: var(--neon-green);
-      color: #000;
-      box-shadow: 0 0 15px var(--neon-glow);
-    }
+    /* Testimonials Carousel */
+    .testi-wrap { position: relative; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 14px; min-height: 120px; }
+    .testi-slide { display: none; }
+    .testi-slide.active { display: block; }
+    .testi-top { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 12.5px; }
+    .testi-name { font-weight: 700; color: #fff; }
+    .testi-stars { color: var(--gold); font-size: 11px; }
+    .testi-txt { font-size: 12px; color: var(--muted); line-height: 1.4; }
+    
+    .nav-btns { display: flex; justify-content: flex-end; gap: 8px; margin-top: 10px; }
+    .nav-btn { background: #162c20; border: 1px solid var(--border); color: var(--primary); padding: 4px 10px; border-radius: 6px; cursor: pointer; font-size: 12px; }
 
-    /* FAQ Section (Accordion) */
-    .faq-section {
-      margin: 60px 0 80px;
-    }
-    .faq-list {
-      max-width: 800px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .faq-item {
-      background: var(--bg-card);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: border-color 0.3s;
-    }
-    .faq-item.active {
-      border-color: var(--neon-green);
-    }
-    .faq-question {
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      font-weight: 700;
-      font-size: 17px;
-    }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease, padding 0.3s ease;
-      color: var(--text-muted);
-      line-height: 1.6;
-      font-size: 15px;
-      padding: 0 20px;
-    }
-    .faq-item.active .faq-answer {
-      max-height: 200px;
-      padding: 0 20px 20px 20px;
-    }
+    /* 3 FAQs */
+    details { background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 8px; padding: 10px 12px; cursor: pointer; }
+    summary { font-size: 12.5px; font-weight: 600; color: #e5e7eb; outline: none; }
+    details p { font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.4; }
 
-    /* Floating Sticky CTA Bottom Bar */
+    /* Sticky Bottom Button */
     .sticky-bar {
       position: fixed;
       bottom: 0;
       left: 0;
       width: 100%;
-      background: rgba(8, 9, 10, 0.92);
-      backdrop-filter: blur(15px);
-      border-top: 1px solid var(--border-green);
-      padding: 12px 20px;
-      z-index: 1000;
+      background: rgba(9, 14, 11, 0.95);
+      border-top: 1px solid var(--border);
+      padding: 10px 14px;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
+      justify-content: center;
+      z-index: 99;
+    }
+    .sticky-bar .btn { max-width: 460px; }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    
+    <!-- 1. LANDSCAPE BANNER -->
+    <div class="banner-slot">
+      <!-- Apne Banner Image ka URL yahan daalein (src) -->
+      <img src="https://placehold.co/900x400/0f2419/34d399?text=The+Viral+Creator+Vault" alt="Banner">
+    </div>
+
+    <!-- Title & Pricing -->
+    <h1>The Viral <span>Creator Vault</span></h1>
+    <p class="sub">173 Pages • 1000+ Hooks, CTAs & Ready Scripts</p>
+
+    <div class="price-box">
+      <div class="old-price">Regular Price: ₹999</div>
+      <div class="price">₹99</div>
+      <a href="https://payments.cashfree.com/forms/the-viral_creator-vault-99" class="btn">Get Instant Access @ ₹99</a>
+    </div>
+
+    <!-- 2. SWIPABLE SCREENSHOTS (3 SLIDES) -->
+    <div class="sec-head">👀 Look Inside The Vault (Swipe 👉)</div>
+    <div class="snap-slider">
+      <div class="snap-item">
+        <img src="https://placehold.co/600x450/111a14/10b981?text=Preview+1%3A+500+Viral+Hooks" alt="Screenshot 1">
+      </div>
+      <div class="snap-item">
+        <img src="https://placehold.co/600x450/111a14/10b981?text=Preview+2%3A+500+High-Converting+CTAs" alt="Screenshot 2">
+      </div>
+      <div class="snap-item">
+        <img src="https://placehold.co/600x450/111a14/10b981?text=Preview+3%3A+100+Reel+Scripts" alt="Screenshot 3">
+      </div>
+    </div>
+
+    <!-- 3. TESTIMONIALS WITH BUTTONS (3 REVIEWS) -->
+    <div class="sec-head">⭐ Creator Reviews</div>
+    <div class="testi-wrap">
+      <div class="testi-slide active">
+        <div class="testi-top">
+          <span class="testi-name">Aman S. (Tech Creator)</span>
+          <span class="testi-stars">★★★★★</span>
+        </div>
+        <p class="testi-txt">"Hook writing me bohot time lagta tha. Iske frameworks se pehle 3 second ka drop rate kaafi kam ho gaya. ₹99 me pure value."</p>
+      </div>
+
+      <div class="testi-slide">
+        <div class="testi-top">
+          <span class="testi-name">Ritu P. (Finance & AI)</span>
+          <span class="testi-stars">★★★★★</span>
+        </div>
+        <p class="testi-txt">"Iske CTA section ne meri reels ke saves double kar diye. No generic motivation, direct actionable copy-paste templates hain."</p>
+      </div>
+
+      <div class="testi-slide">
+        <div class="testi-top">
+          <span class="testi-name">Kunal M. (Faceless Page)</span>
+          <span class="testi-stars">★★★★★</span>
+        </div>
+        <p class="testi-txt">"Faceless channel ke liye scripts banana ab super easy hai. 100 plug-and-play combinations sabse best part laga."</p>
+      </div>
+
+      <div class="nav-btns">
+        <button class="nav-btn" onclick="prevSlide()">❮ Prev</button>
+        <button class="nav-btn" onclick="nextSlide()">Next ❯</button>
+      </div>
+    </div>
+
+    <!-- 4. SIRF 3 FAQS -->
+    <div class="sec-head">❓ FAQs</div>
+    <details>
+      <summary>Payment ke baad PDF kaise milega?</summary>
+      <p>UPI payment complete hote hi screen par direct Google Drive link open ho jayega. Saath hi aapke email par bhi backup bhej diya jayega.</p>
+    </details>
+
+    <details>
+      <summary>Kya ye beginners ke liye hai?</summary>
+      <p>Haan, chahe aap personal brand bana rahe ho ya faceless AI page, isme direct copy-paste templates diye gaye hain.</p>
+    </details>
+
+    <details>
+      <summary>Kya koi hidden charge ya monthly fee hai?</summary>
+      <p>Nahi. Yeh sirf ek baar ka ₹99 payment hai lifetime access ke sath.</p>
+    </details>
+
+  </div>
+
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-bar">
+    <a href="https://payments.cashfree.com/forms/the-viral_creator-vault-99" class="btn">Get Instant Access @ ₹99</a>
+  </div>
+
+  <!-- Carousel Script -->
+  <script>
+    let current = 0;
+    const slides = document.querySelectorAll('.testi-slide');
+    function showSlide(idx) {
+      slides.forEach((s, i) => s.classList.toggle('active', i === idx));
+    }
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+    function prevSlide() {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    }
+  </script>
+
+</body>
+</html>
+ce-between;
       gap: 15px;
       box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.7);
     }
