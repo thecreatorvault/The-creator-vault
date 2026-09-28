@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Viral Creator Vault — Instant Access @ ₹99</title>
+  <title>The Viral Creator Vault @ ₹99</title>
   
   <!-- Meta Pixel Code -->
   <script>
@@ -16,284 +16,234 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     
-    // YAHAN APNA META PIXEL ID DAALEIN
+    // YAHAN APNA PIXEL ID DAALEIN
     fbq('init', 'YOUR_PIXEL_ID_HERE');
     fbq('track', 'PageView');
   </script>
   <!-- End Meta Pixel Code -->
 
   <style>
-    :root {
-      --bg: #060b08;
-      --card-bg: rgba(15, 28, 20, 0.7);
-      --card-border: rgba(16, 185, 129, 0.25);
-      --primary: #10b981;
-      --accent: #34d399;
-      --text: #f9fafb;
-      --text-muted: #9ca3af;
-      --gold: #fbbf24;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background-color: var(--bg); color: var(--text); display: flex; justify-content: center; padding: 0 0 110px 0; overflow-x: hidden; }
-    .wrapper { max-width: 500px; width: 100%; padding: 14px; }
-
-    /* Top Urgency Strip */
-    .top-bar {
-      background: linear-gradient(90deg, #065f46, #047857);
-      color: #fff;
-      font-size: 11.5px;
-      font-weight: 700;
-      text-align: center;
-      padding: 7px 10px;
-      letter-spacing: 0.5px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+    body {
+      background-color: #080d0a;
+      color: #f3f4f6;
       display: flex;
       justify-content: center;
-      align-items: center;
-      gap: 6px;
+      padding: 24px 16px 90px;
     }
 
-    /* Hero Section */
-    .hero { text-align: center; margin-top: 14px; margin-bottom: 20px; }
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(16, 185, 129, 0.12);
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      font-size: 11px;
-      font-weight: 800;
-      padding: 5px 12px;
-      border-radius: 50px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
+    .container {
+      max-width: 440px;
+      width: 100%;
+      text-align: center;
     }
+
+    .tag {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid #10b981;
+      color: #34d399;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+    }
+
     h1 {
       font-size: 26px;
-      line-height: 1.25;
-      font-weight: 900;
-      letter-spacing: -0.5px;
-      margin-bottom: 10px;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 8px;
     }
-    h1 span {
-      background: linear-gradient(135deg, #10b981, #6ee7b7);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    p.hero-sub { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }
 
-    /* Book Landscape Display */
-    .book-banner {
-      background: radial-gradient(circle at center, #064e3b 0%, #031c14 70%);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 24px 14px;
-      text-align: center;
-      margin: 18px 0;
-      position: relative;
-      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+    h1 span {
+      color: #10b981;
     }
-    .book-badge {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: var(--gold);
-      color: #000;
-      font-size: 10px;
+
+    p.sub {
+      font-size: 14px;
+      color: #9ca3af;
+      margin-bottom: 20px;
+      line-height: 1.45;
+    }
+
+    /* Minimal Landscape Vault Banner */
+    .banner {
+      background: linear-gradient(135deg, #092116, #04120b);
+      border: 1px solid #1b382b;
+      border-radius: 14px;
+      padding: 24px 16px;
+      margin-bottom: 22px;
+    }
+
+    .banner-title {
+      font-size: 22px;
       font-weight: 900;
-      padding: 4px 8px;
-      border-radius: 6px;
-      text-transform: uppercase;
+      color: #ffffff;
+      letter-spacing: 0.5px;
     }
-    .book-title { font-size: 22px; font-weight: 900; color: #fff; letter-spacing: 1px; }
-    .book-sub { font-size: 12px; color: var(--accent); margin-top: 4px; font-weight: 600; }
-    .book-meta {
+
+    .banner-meta {
+      font-size: 12px;
+      color: #34d399;
+      margin-top: 6px;
+      font-weight: 600;
+    }
+
+    /* Clean Bullet Points */
+    .checklist {
+      text-align: left;
+      background: #0d1712;
+      border: 1px solid #162c20;
+      border-radius: 14px;
+      padding: 18px 16px;
+      margin-bottom: 22px;
+    }
+
+    .item {
       display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 14px;
-      font-size: 11.5px;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13.5px;
       color: #d1d5db;
+      margin-bottom: 12px;
+      line-height: 1.4;
     }
-    .book-meta span { background: rgba(0,0,0,0.4); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); }
+
+    .item:last-child {
+      margin-bottom: 0;
+    }
+
+    .check {
+      color: #10b981;
+      font-weight: bold;
+      font-size: 15px;
+    }
 
     /* Price Section */
-    .pricing-card {
-      background: linear-gradient(145deg, #092116, #04140d);
-      border: 1.5px solid var(--accent);
-      border-radius: 16px;
-      padding: 18px;
-      text-align: center;
-      margin-bottom: 22px;
-      box-shadow: 0 0 25px rgba(16, 185, 129, 0.25);
+    .price-box {
+      margin-bottom: 18px;
     }
-    .old-price { font-size: 14px; color: #9ca3af; text-decoration: line-through; }
-    .current-price { font-size: 38px; font-weight: 900; color: #fff; line-height: 1; margin: 6px 0; }
-    .current-price span { font-size: 14px; color: var(--accent); font-weight: 600; }
-    .timer-text { font-size: 11.5px; color: var(--gold); font-weight: 700; margin-bottom: 12px; }
 
-    /* Primary CTA Button */
-    .cta-btn {
+    .old {
+      font-size: 13px;
+      color: #6b7280;
+      text-decoration: line-through;
+    }
+
+    .price {
+      font-size: 34px;
+      font-weight: 900;
+      color: #ffffff;
+      margin: 2px 0;
+    }
+
+    .btn {
       display: block;
       width: 100%;
-      background: linear-gradient(135deg, #10b981, #059669);
-      color: #fff;
+      background: #10b981;
+      color: #ffffff;
       text-decoration: none;
       font-size: 16.5px;
-      font-weight: 800;
-      padding: 14px 0;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
-      transition: transform 0.1s ease;
-      cursor: pointer;
-    }
-    .cta-btn:active { transform: scale(0.98); }
-
-    /* Cards */
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      backdrop-filter: blur(10px);
-      border-radius: 14px;
-      padding: 18px;
-      margin-bottom: 16px;
-    }
-    .card-title {
-      font-size: 15px;
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border-bottom: 1px solid var(--card-border);
-      padding-bottom: 8px;
-    }
-
-    /* Chapter Matrix */
-    .chapter-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 8px 0;
-      border-bottom: 1px dashed rgba(255,255,255,0.08);
-      font-size: 13px;
-    }
-    .chapter-item:last-child { border-bottom: none; }
-    .ch-num { color: var(--accent); font-weight: 800; font-size: 11.5px; }
-    .ch-name { color: #e5e7eb; font-weight: 600; }
-
-    /* Highlights Grid */
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .stat-box {
-      background: rgba(16, 185, 129, 0.08);
-      border: 1px solid var(--card-border);
+      font-weight: 700;
+      padding: 15px 0;
       border-radius: 10px;
-      padding: 12px;
-      text-align: center;
+      transition: background 0.2s;
     }
-    .stat-number { font-size: 22px; font-weight: 900; color: var(--accent); }
-    .stat-desc { font-size: 11px; color: #d1d5db; margin-top: 2px; }
 
-    /* Comparison Table */
-    .compare-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 6px; }
-    .compare-table th { text-align: left; padding: 8px; color: var(--text-muted); border-bottom: 1px solid var(--card-border); }
-    .compare-table td { padding: 9px 8px; border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .highlight-row { background: rgba(16, 185, 129, 0.12); font-weight: bold; color: var(--accent); }
+    .btn:active {
+      background: #059669;
+    }
 
-    /* FAQ */
-    details { background: rgba(0,0,0,0.3); border: 1px solid var(--card-border); border-radius: 10px; padding: 10px 14px; margin-bottom: 8px; cursor: pointer; }
-    summary { font-size: 13px; font-weight: 700; color: #e5e7eb; outline: none; }
-    details p { font-size: 12px; color: var(--text-muted); margin-top: 8px; line-height: 1.45; }
+    .note {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 10px;
+    }
 
-    /* Sticky Bottom Bar */
-    .sticky-footer {
+    /* Sticky Bottom Button for Mobile */
+    .sticky-bar {
       position: fixed;
       bottom: 0;
       left: 0;
       width: 100%;
-      background: rgba(6, 11, 8, 0.95);
-      backdrop-filter: blur(12px);
-      border-top: 1px solid var(--card-border);
-      padding: 10px 14px;
+      background: rgba(8, 13, 10, 0.95);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid #1b382b;
+      padding: 10px 16px;
       display: flex;
       justify-content: center;
-      z-index: 999;
+      z-index: 99;
     }
-    .sticky-footer .cta-btn { max-width: 500px; }
+
+    .sticky-bar .btn {
+      max-width: 440px;
+      padding: 13px 0;
+    }
   </style>
 </head>
 <body>
 
-  <div class="wrapper">
-    <!-- Top Scarcity Bar -->
-    <div class="top-bar">
-      ⚡ SPECIAL LAUNCH: 90% OFF APPLIED ONLY FOR NEXT 15 MINUTES!
+  <div class="container">
+    <div class="tag">⚡ INSTANT DIGITAL ACCESS</div>
+    <h1>The Viral <span>Creator Vault</span></h1>
+    <p class="sub">Instagram Reels & Shorts me views aur followers explode karne ka complete toolkit.</p>
+
+    <!-- Landscape Card -->
+    <div class="banner">
+      <div class="banner-title">1000+ VIRAL ASSETS</div>
+      <div class="banner-meta">173 Pages • 10 Core Chapters • PDF Guide</div>
     </div>
 
-    <!-- Hero Header -->
-    <div class="hero">
-      <div class="pill">🔥 Complete Creator Operating System</div>
-      <h1>Views Ruk Gaye Hain? Master The Algorithm With <span>The Viral Creator Vault</span></h1>
-      <p class="hero-sub">Instagram Reels aur Shorts me 3-Second Rule crack karne aur har video se raw followers & reach nikalne ka 173-page blueprint.</p>
-    </div>
-
-    <!-- Product Landscape Showcase -->
-    <div class="book-banner">
-      <div class="book-badge">Instant Download</div>
-      <div class="book-title">The Viral Creator Vault</div>
-      <div class="book-sub">The Operating System for Digital Creators</div>
-      <div class="book-meta">
-        <span>📄 173 Pages</span>
-        <span>⚡ 10 Chapters</span>
-        <span>🎯 1000+ Assets</span>
+    <!-- 4 Clean Points -->
+    <div class="checklist">
+      <div class="item">
+        <span class="check">✓</span>
+        <span><strong>500+ Viral Hooks:</strong> First 3 seconds me scroll rokne ke psychological triggers.</span>
       </div>
-    </div>
-
-    <!-- Quick Stats Grid -->
-    <div class="grid-2" style="margin-bottom: 16px;">
-      <div class="stat-box">
-        <div class="stat-number">500+</div>
-        <div class="stat-desc">Viral Hooks Swipe File</div>
+      <div class="item">
+        <span class="check">✓</span>
+        <span><strong>500+ High-Converting CTAs:</strong> Saves, shares aur followers boost karne ke frameworks.</span>
       </div>
-      <div class="stat-box">
-        <div class="stat-number">500+</div>
-        <div class="stat-desc">High-Converting CTAs</div>
+      <div class="item">
+        <span class="check">✓</span>
+        <span><strong>100+ Ready Scripts:</strong> Plug-and-shoot combinations turant record karne ke liye.</span>
       </div>
-      <div class="stat-box">
-        <div class="stat-number">100</div>
-        <div class="stat-desc">Plug & Shoot Combinations</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-number">10</div>
-        <div class="stat-desc">Core Hook Engines</div>
+      <div class="item">
+        <span class="check">✓</span>
+        <span><strong>Instant Lifetime Access:</strong> Mobile, Tablet aur PC par read karein.</span>
       </div>
     </div>
 
-    <!-- Pricing Box -->
-    <div class="pricing-card">
-      <div class="old-price">Regular Price: ₹999</div>
-      <div class="current-price">₹99 <span>(One-Time Payment)</span></div>
-      <div class="timer-text">⏳ Price Increases to ₹999 Once Timer Ends</div>
-
-      <!-- CASHFREE CHECKOUT LINK -->
-      <a href="https://payments.cashfree.com/forms/the-viral_creator-vault-99" class="cta-btn" onclick="fbq('track', 'InitiateCheckout');">
-        Get Instant Access @ ₹99 Now
+    <!-- Pricing & Button -->
+    <div class="price-box">
+      <div class="old">Regular Price: ₹999</div>
+      <div class="price">₹99</div>
+      <a href="https://payments.cashfree.com/forms/the-viral_creator-vault-99" class="btn" onclick="fbq('track', 'InitiateCheckout');">
+        Get Instant Access @ ₹99
       </a>
-      <p style="font-size: 11px; color: #9ca3af; margin-top: 8px;">⚡ Instant Screen Access + Backup Email Delivery</p>
+      <div class="note">⚡ Payment ke baad direct screen par PDF open ho jayegi</div>
     </div>
+  </div>
 
-    <!-- Exact 10-Chapter Matrix Breakdown -->
-    <div class="card">
-      <div class="card-title">📖 What’s Inside The 10-Chapter Matrix:</div>
-      
-      <div class="chapter-item">
-        <span class="ch-name">Ch 01: Swagat Hai Viral Creator World Me</span>
+  <!-- Mobile Sticky Button -->
+  <div class="sticky-bar">
+    <a href="https://payments.cashfree.com/forms/the-viral_creator-vault-99" class="btn" onclick="fbq('track', 'InitiateCheckout');">
+      Get Instant Access @ ₹99
+    </a>
+  </div>
+
+</body>
+</html>
+t Hai Viral Creator World Me</span>
         <span class="ch-num">Foundations</span>
       </div>
       <div class="chapter-item">
