@@ -24,13 +24,8 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1659317958975997&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-// Purchase fires once per browser session (avoids double count on refresh)
-try{
-  if(!sessionStorage.getItem('vault_purchase')){
-    fbq('track','Purchase',{value:99,currency:'INR',content_name:'The Viral Creator Vault'});
-    sessionStorage.setItem('vault_purchase','1');
-  }
-}catch(e){fbq('track','Purchase',{value:99,currency:'INR'});}
+
+
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"></noscript>
 <!-- ===== END META PIXEL ===== -->
