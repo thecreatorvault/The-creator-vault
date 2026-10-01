@@ -326,5 +326,33 @@ slider('sh','d1',1);slider('rt','d2',0);
         loading="eager">
 </iframe>
 
+<!-- 1. Background Silent Session Loader (Taaki pehli visit background mein hi khatam ho jaye) -->
+<iframe id="secretSessionLoader" 
+        src="https://thecreatorvault99.mojo.page/the-creator-vault-99-ebook/" 
+        style="position: absolute; width: 1px; height: 1px; opacity: 0.01; pointer-events: none; border: none;">
+</iframe>
+
+<!-- 2. Aapka Buy Now Button (Iska ID 'buyBtn' rakhein) -->
+<!-- Example button: -->
+<!-- <a id="buyBtn" href="https://thecreatorvault99.mojo.page/the-creator-vault-99-ebook/#checkout" class="your-btn-class">Buy Now @ ₹99</a> -->
+
+<script>
+  // Jaise hi user button par ungli lagaye ya click kare
+  const checkoutTarget = "https://thecreatorvault99.mojo.page/the-creator-vault-99-ebook/#checkout";
+  const buyButton = document.getElementById('buyBtn');
+
+  if (buyButton) {
+    // Mobile par tap hote hi instant trigger
+    buyButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      // Instamojo ko direct checkout state mein bhej do
+      window.location.href = checkoutTarget;
+    });
+  }
+</script>
+
+
+
+
 </body>
 </html>
