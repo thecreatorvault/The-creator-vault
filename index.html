@@ -135,7 +135,62 @@ footer a{color:var(--em);text-decoration:none}
 
 
     
+<!-- 1. Aapka Main Buy Button -->
+<button id="openCheckoutBtn" 
+        style="display: inline-block; width: 100%; max-width: 380px; padding: 16px 28px; background: #2563eb; color: #ffffff; font-size: 19px; font-weight: bold; border: none; border-radius: 10px; cursor: pointer; box-shadow: 0 4px 15px rgba(37,99,235,0.4);">
+  ⚡ Instant Access @ ₹99 (Buy Now)
+</button>
 
+<!-- 2. Instant Checkout Modal Box -->
+<div id="checkoutModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 999999; align-items: center; justify-content: center; backdrop-filter: blur(4px);">
+  
+  <div style="position: relative; width: 100%; max-width: 480px; height: 92vh; background: #ffffff; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
+    
+    <!-- Top Bar with Close Button -->
+    <div style="background: #0f172a; color: #fff; padding: 12px 18px; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: bold; font-size: 15px;">🔒 Secure Checkout - ₹99</span>
+      <button onclick="closePayment()" style="background: transparent; border: none; color: #fff; font-size: 24px; cursor: pointer; line-height: 1;">&times;</button>
+    </div>
+
+    <!-- Live Checkout Window -->
+    <iframe id="paymentFrame" 
+            src="" 
+            style="width: 100%; height: 100%; border: none;">
+    </iframe>
+  </div>
+
+</div>
+
+<!-- 3. Automated Script -->
+<script>
+  const checkoutUrl = "https://thecreatorvault99.mojo.page/the-creator-vault-99-ebook/checkout";
+
+  // Background me page pehle hi cache/load kar lena
+  window.addEventListener('DOMContentLoaded', () => {
+    const prefetchLink = document.createElement('link');
+    prefetchLink.rel = 'prefetch';
+    prefetchLink.href = checkoutUrl;
+    document.head.appendChild(prefetchLink);
+  });
+
+  // Button click hone par turant payment frame load aur open karna
+  document.getElementById('openCheckoutBtn').addEventListener('click', function() {
+    const modal = document.getElementById('checkoutModal');
+    const iframe = document.getElementById('paymentFrame');
+    
+    // Iframe me checkout link load karna
+    iframe.src = checkoutUrl;
+    modal.style.display = 'flex';
+  });
+
+  function closePayment() {
+    const modal = document.getElementById('checkoutModal');
+    const iframe = document.getElementById('paymentFrame');
+    modal.style.display = 'none';
+    iframe.src = ""; // Stop process
+  }
+</script>
+    
 
 
     
