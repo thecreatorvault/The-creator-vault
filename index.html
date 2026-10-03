@@ -66,7 +66,8 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0
 .shot img{cursor:zoom-in}
 #lb{display:none;position:fixed;inset:0;z-index:999;background:rgba(5,10,8,.92);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:28px}
 #lb.on{display:flex}
-#lb .lbwrap{position:relative;max-width:94vw;max-height:88vh;overflow:auto;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6);-webkit-overflow-scrolling:touch;display:flex;align-items:flex-start;justify-content:center}
+#lb .lbwrap{position:relative;max-width:94vw;max-height:88vh;overflow:auto;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6);-webkit-overflow-scrolling:touch;display:flex;align-items:flex-start;justify-content:center;scrollbar-width:none;-ms-overflow-style:none}
+#lb .lbwrap::-webkit-scrollbar{display:none}
 #lb img{display:block;max-width:94vw;max-height:88vh;width:auto;height:auto;object-fit:contain;border-radius:14px;cursor:zoom-in;user-select:none;-webkit-user-drag:none}
 #lb img.zoomed{max-width:none;max-height:none;width:auto;height:auto;cursor:zoom-out}
 #lb .lbclose{position:absolute;top:-6px;right:-6px;width:40px;height:40px;border-radius:50%;background:#fff;color:#111;border:0;font-size:1.3rem;line-height:1;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;z-index:2}
