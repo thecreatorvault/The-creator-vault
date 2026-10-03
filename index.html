@@ -60,16 +60,20 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0
 .slider{position:relative}
 .track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 20px 18px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .track::-webkit-scrollbar{display:none}
-.shot{flex:0 0 min(62vw,250px);scroll-snap-align:center;aspect-ratio:595/842;border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:0 14px 34px rgba(16,35,27,.16);position:relative;transition:.3s}
-.shot:hover{transform:scale(1.03);border-color:var(--em)}
-.shot img{width:100%;height:100%;object-fit:cover;display:block}
-.shot img{cursor:zoom-in}
+.shot{flex:0 0 min(66vw,270px);scroll-snap-align:center;border-radius:14px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:0 18px 40px rgba(16,35,27,.12);transition:.3s;display:flex;flex-direction:column}
+.shot:hover{transform:translateY(-5px);box-shadow:0 26px 54px rgba(16,35,27,.18);border-color:rgba(22,163,74,.4)}
+.shotbar{display:flex;align-items:center;gap:6px;padding:9px 12px;background:#f4f6f5;border-bottom:1px solid var(--line);flex:0 0 auto}
+.shotbar b{width:8px;height:8px;border-radius:50%;display:block}
+.shotbar b:nth-child(1){background:#ff5f57}.shotbar b:nth-child(2){background:#febc2e}.shotbar b:nth-child(3){background:#28c840}
+.shotbar i{margin-left:auto;font-style:normal;font-size:.66rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--mu)}
+.shotimg{aspect-ratio:595/842;overflow:hidden}
+
+.shot img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in}
 #lb{display:none;position:fixed;inset:0;z-index:999;background:rgba(5,10,8,.92);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:28px}
 #lb.on{display:flex}
-#lb .lbwrap{position:relative;max-width:94vw;max-height:88vh;overflow:auto;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6);-webkit-overflow-scrolling:touch;display:flex;align-items:flex-start;justify-content:center;scrollbar-width:none;-ms-overflow-style:none}
+#lb .lbwrap{position:relative;width:min(92vw,480px);max-height:88vh;overflow-y:auto;overflow-x:hidden;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6);-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none}
 #lb .lbwrap::-webkit-scrollbar{display:none}
-#lb img{display:block;max-width:94vw;max-height:88vh;width:auto;height:auto;object-fit:contain;border-radius:14px;cursor:zoom-in;user-select:none;-webkit-user-drag:none}
-#lb img.zoomed{max-width:none;max-height:none;width:auto;height:auto;cursor:zoom-out}
+#lb img{display:block;width:100%;height:auto;border-radius:14px;cursor:zoom-in;user-select:none;-webkit-user-drag:none}
 #lb .lbclose{position:absolute;top:-6px;right:-6px;width:40px;height:40px;border-radius:50%;background:#fff;color:#111;border:0;font-size:1.3rem;line-height:1;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;z-index:2}
 #lb .lbhint{position:absolute;bottom:-34px;left:50%;transform:translateX(-50%);color:#cfe3d5;font-size:.78rem;white-space:nowrap}
 @media(max-width:700px){#lb .lbclose{top:-44px;right:0}}
@@ -146,9 +150,9 @@ footer a{color:var(--em);text-decoration:none}
 <p class="sub rev">Swipe to preview real pages from the eBook.</p>
 <div class="slider rev"><button class="arr l" aria-label="Previous">‹</button><button class="arr r" aria-label="Next">›</button>
 <div class="track c" id="sh">
-<div class="shot"><img src="https://raw.githubusercontent.com/thecreatorvault/The-creator-vault/3efe894bfc3b032214b1fc7e3eae4bee79e81023/Page-1-1000039736-50kb.jpg" alt="Inside the Vault – preview 1" loading="lazy"><span>Preview 01</span></div>
-<div class="shot"><img src="https://raw.githubusercontent.com/thecreatorvault/The-creator-vault/3efe894bfc3b032214b1fc7e3eae4bee79e81023/Page-2-1000039737-50kb.jpg" alt="Inside the Vault – preview 2" loading="lazy"><span>Preview 02</span></div>
-<div class="shot"><img src="https://raw.githubusercontent.com/thecreatorvault/The-creator-vault/3efe894bfc3b032214b1fc7e3eae4bee79e81023/Page-3-1000039738-50kb.jpg" alt="Inside the Vault – preview 3" loading="lazy"><span>Preview 03</span></div>
+<div class="shot"><div class="shotbar"><b></b><b></b><b></b><i>Preview 01</i></div><div class="shotimg"><img src="https://raw.githubusercontent.com/thecreatorvault/The-creator-vault/3efe894bfc3b032214b1fc7e3eae4bee79e81023/Page-1-1000039736-50kb.jpg" alt="Inside the Vault – preview 1" loading="lazy"></div></div>
+<div class="shot"><div class="shotbar"><b></b><b></b><b></b><i>Preview 02</i></div><div class="shotimg"><img src="https://raw.githubusercontent.com/thecreatorvault/The-creator-vault/3efe894bfc3b032214b1fc7e3eae4bee79e81023/Page-2-1000039737-50kb.jpg" alt="Inside the Vault – preview 2" loading="lazy"></div></div>
+<div class="shot"><div class="shotbar"><b></b><b></b><b></b><i>Preview 03</i></div><div class="shotimg"><img src="https://raw.githubusercontent.com/thecreatorvault/The-creator-vault/3efe894bfc3b032214b1fc7e3eae4bee79e81023/Page-3-1000039738-50kb.jpg" alt="Inside the Vault – preview 3" loading="lazy"></div></div>
 </div><div class="dots" id="d1"></div></div></div></section>
 
 <section><div class="w" style="padding:0">
@@ -202,29 +206,21 @@ slider('sh','d1',1);slider('rt','d2',0);
   <div class="lbwrap">
     <button class="lbclose" aria-label="Close">&times;</button>
     <img id="lbimg" src="" alt="">
-    <span class="lbhint">Tap image to zoom</span>
+    <span class="lbhint">Scroll to see full preview</span>
   </div>
 </div>
 
 <script>
 (function(){
   var lb=document.getElementById('lb'), lbwrap=lb.querySelector('.lbwrap'), lbimg=document.getElementById('lbimg'), closeBtn=lb.querySelector('.lbclose');
-  var zoomed=false;
   function open(src,alt){
-    lbimg.src=src; lbimg.alt=alt||''; zoomed=false; lbimg.classList.remove('zoomed');
+    lbimg.src=src; lbimg.alt=alt||'';
     lb.classList.add('on'); document.body.style.overflow='hidden';
-    lbwrap.scrollTop=0; lbwrap.scrollLeft=0;
+    lbwrap.scrollTop=0;
   }
   function close(){ lb.classList.remove('on'); document.body.style.overflow=''; }
   document.querySelectorAll('.shot img').forEach(function(img){
     img.addEventListener('click', function(){ open(img.src, img.alt); });
-  });
-  // Click the image to toggle between "fit to screen" and "full resolution" (scroll to see detail)
-  lbimg.addEventListener('click', function(e){
-    e.stopPropagation();
-    zoomed=!zoomed;
-    lbimg.classList.toggle('zoomed', zoomed);
-    if(zoomed){ lbwrap.scrollTop=0; lbwrap.scrollLeft=0; }
   });
   closeBtn.addEventListener('click', close);
   lb.addEventListener('click', function(e){ if(e.target===lb) close(); });
