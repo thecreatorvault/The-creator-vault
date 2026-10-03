@@ -64,11 +64,11 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0
 .shot:hover{transform:scale(1.03);border-color:var(--em)}
 .shot img{width:100%;height:100%;object-fit:cover;display:block}
 .shot img{cursor:zoom-in}
-#lb{display:none;position:fixed;inset:0;z-index:999;background:rgba(5,10,8,.92);backdrop-filter:blur(6px);align-items:center;justify-content:center;touch-action:none}
+#lb{display:none;position:fixed;inset:0;z-index:999;background:rgba(5,10,8,.92);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:28px}
 #lb.on{display:flex}
-#lb .lbwrap{position:relative;max-width:94vw;max-height:88vh;overflow:hidden;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6);touch-action:none}
-#lb img{display:block;max-width:94vw;max-height:88vh;border-radius:14px;cursor:zoom-in;transition:transform .25s ease;transform-origin:center center;user-select:none;-webkit-user-drag:none}
-#lb img.zoomed{cursor:zoom-out}
+#lb .lbwrap{position:relative;max-width:94vw;max-height:88vh;overflow:auto;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6);-webkit-overflow-scrolling:touch;display:flex;align-items:flex-start;justify-content:center}
+#lb img{display:block;max-width:94vw;max-height:88vh;width:auto;height:auto;object-fit:contain;border-radius:14px;cursor:zoom-in;user-select:none;-webkit-user-drag:none}
+#lb img.zoomed{max-width:none;max-height:none;width:auto;height:auto;cursor:zoom-out}
 #lb .lbclose{position:absolute;top:-6px;right:-6px;width:40px;height:40px;border-radius:50%;background:#fff;color:#111;border:0;font-size:1.3rem;line-height:1;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;z-index:2}
 #lb .lbhint{position:absolute;bottom:-34px;left:50%;transform:translateX(-50%);color:#cfe3d5;font-size:.78rem;white-space:nowrap}
 @media(max-width:700px){#lb .lbclose{top:-44px;right:0}}
@@ -119,7 +119,7 @@ footer a{color:var(--em);text-decoration:none}
 <div class="niches rev">
 <span>AI</span><span>Fitness</span><span>Finance</span><span>Business</span><span>Freelancing</span>
 </div>
-<div class="ban"><img src="banner.jpg" alt="The Viral Creator Vault"></div>
+<div class="ban"><img src="https://raw.githubusercontent.com/thecreatorvault/The-creator-vault/3efe894bfc3b032214b1fc7e3eae4bee79e81023/banner.jpg" alt="The Viral Creator Vault"></div>
 <div class="cw"><a class="hbtn" href="https://thecreatorvault99.mojo.page/the-creator-vault-99-ebook/checkout" target="_blank" rel="noopener"><span>Get Instant Access</span><span class="pr">₹99 <s>₹999</s> <b class="ar">→</b></span></a><div class="hsub">🔒 Secure checkout · Instant PDF delivery</div></div>
 <div class="trust"><span>Instant PDF download</span><span>Delivered to your email</span><span>Secure checkout</span></div>
 </div></header>
@@ -145,9 +145,9 @@ footer a{color:var(--em);text-decoration:none}
 <p class="sub rev">Swipe to preview real pages from the eBook.</p>
 <div class="slider rev"><button class="arr l" aria-label="Previous">‹</button><button class="arr r" aria-label="Next">›</button>
 <div class="track c" id="sh">
-<div class="shot"><img src="Page-1-1000039736-50kb.jpg" alt="Inside the Vault – preview 1" loading="lazy"><span>Preview 01</span></div>
-<div class="shot"><img src="Page-2-1000039737-50kb.jpg" alt="Inside the Vault – preview 2" loading="lazy"><span>Preview 02</span></div>
-<div class="shot"><img src="Page-3-1000039738-50kb.jpg" alt="Inside the Vault – preview 3" loading="lazy"><span>Preview 03</span></div>
+<div class="shot"><img src="https://raw.githubusercontent.com/thecreatorvault/The-creator-vault/3efe894bfc3b032214b1fc7e3eae4bee79e81023/Page-1-1000039736-50kb.jpg" alt="Inside the Vault – preview 1" loading="lazy"><span>Preview 01</span></div>
+<div class="shot"><img src="https://raw.githubusercontent.com/thecreatorvault/The-creator-vault/3efe894bfc3b032214b1fc7e3eae4bee79e81023/Page-2-1000039737-50kb.jpg" alt="Inside the Vault – preview 2" loading="lazy"><span>Preview 02</span></div>
+<div class="shot"><img src="https://raw.githubusercontent.com/thecreatorvault/The-creator-vault/3efe894bfc3b032214b1fc7e3eae4bee79e81023/Page-3-1000039738-50kb.jpg" alt="Inside the Vault – preview 3" loading="lazy"><span>Preview 03</span></div>
 </div><div class="dots" id="d1"></div></div></div></section>
 
 <section><div class="w" style="padding:0">
@@ -207,42 +207,27 @@ slider('sh','d1',1);slider('rt','d2',0);
 
 <script>
 (function(){
-  var lb=document.getElementById('lb'), lbimg=document.getElementById('lbimg'), closeBtn=lb.querySelector('.lbclose');
-  var zoomed=false, scale=1;
+  var lb=document.getElementById('lb'), lbwrap=lb.querySelector('.lbwrap'), lbimg=document.getElementById('lbimg'), closeBtn=lb.querySelector('.lbclose');
+  var zoomed=false;
   function open(src,alt){
-    lbimg.src=src; lbimg.alt=alt||''; zoomed=false; scale=1; lbimg.classList.remove('zoomed'); lbimg.style.transform='scale(1)';
+    lbimg.src=src; lbimg.alt=alt||''; zoomed=false; lbimg.classList.remove('zoomed');
     lb.classList.add('on'); document.body.style.overflow='hidden';
+    lbwrap.scrollTop=0; lbwrap.scrollLeft=0;
   }
   function close(){ lb.classList.remove('on'); document.body.style.overflow=''; }
   document.querySelectorAll('.shot img').forEach(function(img){
     img.addEventListener('click', function(){ open(img.src, img.alt); });
   });
+  // Click the image to toggle between "fit to screen" and "full resolution" (scroll to see detail)
   lbimg.addEventListener('click', function(e){
     e.stopPropagation();
-    zoomed=!zoomed; scale=zoomed?2.4:1;
-    lbimg.style.transform='scale('+scale+')';
+    zoomed=!zoomed;
     lbimg.classList.toggle('zoomed', zoomed);
+    if(zoomed){ lbwrap.scrollTop=0; lbwrap.scrollLeft=0; }
   });
   closeBtn.addEventListener('click', close);
   lb.addEventListener('click', function(e){ if(e.target===lb) close(); });
   document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
-  // pinch-zoom support on touch devices
-  var startDist=0, startScale=1;
-  lbimg.addEventListener('touchstart', function(e){
-    if(e.touches.length===2){
-      startDist=Math.hypot(e.touches[0].clientX-e.touches[1].clientX, e.touches[0].clientY-e.touches[1].clientY);
-      startScale=scale;
-    }
-  }, {passive:true});
-  lbimg.addEventListener('touchmove', function(e){
-    if(e.touches.length===2){
-      var d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX, e.touches[0].clientY-e.touches[1].clientY);
-      scale=Math.min(Math.max(startScale*(d/startDist),1),4);
-      zoomed=scale>1.05;
-      lbimg.style.transform='scale('+scale+')';
-      lbimg.classList.toggle('zoomed', zoomed);
-    }
-  }, {passive:true});
 })();
 </script>
 </body></html>
