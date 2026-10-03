@@ -34,7 +34,6 @@ h2{font-family:'Sora',sans-serif;font-size:clamp(1.3rem,4vw,1.85rem);font-weight
 .sub{color:var(--mu);text-align:center;max-width:540px;margin:0 auto 24px;font-size:.92rem}
 .hl{color:var(--cta)}.em{color:var(--em-light)}
 
-/* CLAUDE STYLE SCROLL REVEAL */
 .rev{
   opacity:0;
   transform:translateY(24px);
@@ -46,7 +45,6 @@ h2{font-family:'Sora',sans-serif;font-size:clamp(1.3rem,4vw,1.85rem);font-weight
   transform:none;
 }
 
-/* TOP TIMER BAR */
 .top-bar{background:#0b1912;color:#dcfce7;text-align:center;font-size:.8rem;padding:9px 12px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;border-bottom:1px solid rgba(34,197,94,.25)}
 .timer-pill{background:#dc2626;color:#fff;padding:2px 8px;border-radius:4px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:.05em}
 
@@ -59,10 +57,13 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0
 .badge-weekly{display:inline-flex;align-items:center;gap:6px;font-size:.74rem;font-weight:700;color:#15803d;background:#dcfce7;border:1px solid #86efac;padding:5px 14px;border-radius:99px;margin-bottom:14px}
 .hero p.lead{color:var(--mu);max-width:580px;margin:12px auto 0;font-size:.95rem}
 
-.niches{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:16px 0 22px}
-.niches span{font-size:.74rem;font-weight:600;color:var(--mu);background:var(--s);border:1px solid var(--line);padding:5px 12px;border-radius:99px}
+.niches{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:16px 0 22px}
+.niches span{font-size:.76rem;font-weight:700;color:#0f172a;background:var(--s);border:1px solid var(--line);padding:6px 14px;border-radius:99px;display:inline-flex;align-items:center;gap:4px}
+.niches span:first-child{background:#fff1f2;border-color:#fecdd3;color:#e11d48}
+.niches span:nth-child(2){background:#fdf2f8;border-color:#fbcfe8;color:#db2777}
+.niches span:nth-child(3){background:#eff6ff;border-color:#bfdbfe;color:#2563eb}
+.niches span:nth-child(4){background:#f0fdf4;border-color:#bbf7d0;color:#16a34a}
 
-/* FLOAT BANNER */
 .ban{
   position:relative;
   margin:0 auto;max-width:680px;border-radius:18px;padding:6px;
@@ -94,7 +95,6 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0
 .trust{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;margin-top:14px;color:var(--mu);font-size:.78rem}
 .trust span:before{content:"✓ ";color:var(--em-light);font-weight:800}
 
-/* STATS */
 .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:10px}
 @media(min-width:640px){.stats{grid-template-columns:repeat(4,1fr)}}
 .st{background:var(--s);border:1px solid var(--line);border-radius:12px;padding:14px 6px;text-align:center}
@@ -109,7 +109,6 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0
 .f b{display:block;font-size:.95rem;margin-bottom:2px}
 .f p{color:var(--mu);font-size:.84rem}
 
-/* PREVIEWS */
 .slider-wrap{position:relative}
 .track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 0 16px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .track::-webkit-scrollbar{display:none}
@@ -151,7 +150,6 @@ summary:after{content:"+";font-size:1.3rem;color:var(--em)}
 details[open] summary:after{content:"-"}
 details p{padding:0 16px 14px;color:var(--mu);font-size:.85rem}
 
-/* FLOATING STICKY BUTTON */
 .float-bar{
   position:fixed;left:0;right:0;bottom:12px;z-index:900;
   display:flex;justify-content:center;pointer-events:none;
@@ -176,7 +174,6 @@ details p{padding:0 16px 14px;color:var(--mu);font-size:.85rem}
 }
 .float-btn .badge-price s{color:#94a3b8;font-size:.76em}
 
-/* LIGHTBOX MODAL */
 #lb{display:none;position:fixed;inset:0;z-index:9999;background:rgba(5,10,8,0.92);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:16px}
 #lb.on{display:flex}
 .lbwrap{
@@ -197,7 +194,6 @@ details p{padding:0 16px 14px;color:var(--mu);font-size:.85rem}
 }
 .lbhint{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);color:#cbd5e1;font-size:.76rem;background:rgba(0,0,0,.7);padding:4px 12px;border-radius:99px;pointer-events:none}
 
-/* REALISTIC RECENT BUY POPUP */
 .recent-buy{
   position:fixed;bottom:78px;left:14px;z-index:850;
   background:#fff;border:1px solid #cbd5e1;border-radius:10px;
@@ -215,7 +211,6 @@ details p{padding:0 16px 14px;color:var(--mu);font-size:.85rem}
 
 <div class="bg-ambient"></div>
 
-<!-- COUNTDOWN TIMER -->
 <div class="top-bar">
   <span>⚡ Special Launch Price: <b>₹99</b> <s style="opacity:.6">₹999</s></span>
   <span>Ends in: <span class="timer-pill" id="timer">11:42</span></span>
@@ -234,8 +229,14 @@ details p{padding:0 16px 14px;color:var(--mu);font-size:.85rem}
     <h1 class="rev">Stop Guessing What To Post.<br><span class="hl">Use Proven Hooks, CTAs & Blueprints.</span></h1>
     <p class="lead rev">A structured swipe-file playbook designed to help you write captivating hooks and complete video scripts without creative burnout.</p>
     
+    <!-- UPDATED PLATFORMS IN ORDER -->
     <div class="niches rev">
-      <span>AI</span><span>Fitness</span><span>Finance</span><span>Business</span><span>Freelancing</span>
+      <span>▶ YouTube</span>
+      <span>⚡ Reels</span>
+      <span>📸 Instagram</span>
+      <span>👥 Facebook</span>
+      <span>📱 Shorts</span>
+      <span>🎭 Faceless</span>
     </div>
 
     <div class="ban rev">
@@ -256,7 +257,6 @@ details p{padding:0 16px 14px;color:var(--mu);font-size:.85rem}
   </div>
 </header>
 
-<!-- COUNT UP NUMBERS SECTION -->
 <div class="w">
   <div class="stats rev">
     <div class="st"><b class="counter" data-target="500">0</b><span>+ Viral Hooks</span></div>
@@ -274,14 +274,13 @@ details p{padding:0 16px 14px;color:var(--mu);font-size:.85rem}
       <div class="f rev"><div class="ic">01</div><div><b>500+ Categorized Hooks</b><p>Curiosity, contrarian, story, and question triggers to grab attention.</p></div></div>
       <div class="f rev"><div class="ic">02</div><div><b>500+ Actionable CTAs</b><p>Templates to encourage real comments, saves, and follows organically.</p></div></div>
       <div class="f rev"><div class="ic">03</div><div><b>100 Ready-to-Shoot Combinations</b><p>Hook + content flow + CTA pre-arranged so you can start recording.</p></div></div>
-      <div class="f rev"><div class="ic">04</div><div><b>Niche-Specific Blueprints</b><p>Frameworks adapted for AI, fitness, finance, agency, and freelancing.</p></div></div>
+      <div class="f rev"><div class="ic">04</div><div><b>Multi-Platform Blueprints</b><p>Frameworks adapted specifically for YouTube, Reels, Facebook and Shorts.</p></div></div>
       <div class="f rev"><div class="ic">05</div><div><b>Faceless Creator Workflows</b><p>Step-by-step structures that also work without showing your face.</p></div></div>
       <div class="f rev"><div class="ic">06</div><div><b>173-Page Playbook (PDF)</b><p>Instant digital download accessible on phone, tablet, or laptop forever.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- INTERACTIVE SCREENSHOT PREVIEW -->
 <section style="padding-top:10px">
   <div class="w">
     <h2 class="rev">A Look Inside The Playbook</h2>
@@ -309,7 +308,6 @@ details p{padding:0 16px 14px;color:var(--mu);font-size:.85rem}
   </div>
 </section>
 
-<!-- REVIEWS -->
 <section style="padding-top:10px">
   <div class="w">
     <h2 class="rev">What Creators Say</h2>
@@ -318,18 +316,18 @@ details p{padding:0 16px 14px;color:var(--mu);font-size:.85rem}
     <div class="track rev">
       <div class="rv">
         <div class="stars">★★★★★</div>
-        <p>"The hooks completely changed how my Reels open. The ready-made combinations save me hours every week."</p>
-        <div class="who"><div class="av">R</div><div><b>Rohit S.</b><small>Fitness Creator</small></div></div>
+        <p>"The hooks completely changed how my videos open. The ready-made combinations save me hours every week."</p>
+        <div class="who"><div class="av">R</div><div><b>Rohit S.</b><small>Video Creator</small></div></div>
       </div>
       <div class="rv">
         <div class="stars">★★★★★</div>
-        <p>"I manage multiple client channels and the niche blueprints make script drafting way quicker."</p>
+        <p>"I manage multiple client channels and the blueprints make script drafting way quicker."</p>
         <div class="who"><div class="av">K</div><div><b>Karan P.</b><small>Freelance Video Editor</small></div></div>
       </div>
       <div class="rv">
         <div class="stars">★★★★★</div>
         <p>"I run a faceless account and the CTA section gave me very clear ideas on how to guide conversations in comments."</p>
-        <div class="who"><div class="av">A</div><div><b>Ankita M.</b><small>Finance Page Owner</small></div></div>
+        <div class="who"><div class="av">A</div><div><b>Ankita M.</b><small>Channel Owner</small></div></div>
       </div>
     </div>
   </div>
@@ -351,7 +349,6 @@ details p{padding:0 16px 14px;color:var(--mu);font-size:.85rem}
   </div>
 </section>
 
-<!-- FAQ -->
 <section style="padding-top:10px">
   <div class="w">
     <h2 class="rev">Frequently Asked Questions</h2>
@@ -384,7 +381,6 @@ details p{padding:0 16px 14px;color:var(--mu);font-size:.85rem}
   </div>
 </footer>
 
-<!-- FLOATING STICKY BUTTON -->
 <div class="float-bar">
   <a class="float-btn" href="https://thecreatorvault99.mojo.page/the-creator-vault-99-ebook/checkout" target="_blank" rel="noopener">
     <span>Get Instant Access</span>
@@ -392,7 +388,6 @@ details p{padding:0 16px 14px;color:var(--mu);font-size:.85rem}
   </a>
 </div>
 
-<!-- LIVE RECENT PURCHASE POPUP -->
 <div class="recent-buy" id="rb">
   <div class="rb-icon">✓</div>
   <div class="rb-txt">
@@ -401,7 +396,6 @@ details p{padding:0 16px 14px;color:var(--mu);font-size:.85rem}
   </div>
 </div>
 
-<!-- LIGHTBOX MODAL -->
 <div id="lb" onclick="closeZoom(event)">
   <button class="lbclose" onclick="closeZoom(event)">×</button>
   <div class="lbwrap" id="lbwrap">
@@ -411,18 +405,16 @@ details p{padding:0 16px 14px;color:var(--mu);font-size:.85rem}
 </div>
 
 <script>
-// 1. CLAUDE-STYLE SCROLL REVEAL & NUMBERS COUNT-UP
 var obs = new IntersectionObserver(function(entries, observer){
   entries.forEach(function(entry){
     if(entry.isIntersecting){
       entry.target.classList.add('in');
       
-      // Numbers Count Up Trigger
       var counters = entry.target.querySelectorAll('.counter');
       counters.forEach(function(c){
         var target = +c.getAttribute('data-target');
         var startTime = null;
-        var duration = 1400; // 1.4s smooth easing
+        var duration = 1400;
         function animateNum(currentTime){
           if(!startTime) startTime = currentTime;
           var progress = Math.min((currentTime - startTime) / duration, 1);
@@ -444,7 +436,6 @@ var obs = new IntersectionObserver(function(entries, observer){
 
 document.querySelectorAll('.rev').forEach(function(el){ obs.observe(el); });
 
-// 2. COUNTDOWN TIMER
 (function(){
   var total = 11 * 60 + 42;
   var tEl = document.getElementById('timer');
@@ -457,7 +448,6 @@ document.querySelectorAll('.rev').forEach(function(el){ obs.observe(el); });
   }, 1000);
 })();
 
-// 3. RECENT PURCHASE POPUPS
 (function(){
   var buyers = [
     {n: "Rahul S. from Delhi", t: "2 mins ago"},
@@ -482,7 +472,6 @@ document.querySelectorAll('.rev').forEach(function(el){ obs.observe(el); });
   setTimeout(showPopup, 3500);
 })();
 
-// 4. ZOOM LIGHTBOX
 var lb = document.getElementById('lb');
 var lbTarget = document.getElementById('lb-target');
 var lbWrap = document.getElementById('lbwrap');
