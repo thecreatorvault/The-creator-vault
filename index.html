@@ -21,7 +21,7 @@ html,body{
   background:var(--bg);color:var(--tx);
   font:15px/1.6 'Inter',-apple-system,"Segoe UI",Roboto,sans-serif;
   -webkit-font-smoothing:antialiased;
-  padding-bottom:92px;
+  padding-bottom:94px;
 }
 .bg-ambient{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
 .bg-ambient:before{content:"";position:absolute;top:-10%;left:50%;transform:translateX(-50%);width:min(90vw,650px);height:400px;background:radial-gradient(circle,rgba(34,197,94,0.11),transparent 70%)}
@@ -34,8 +34,21 @@ h2{font-family:'Sora',sans-serif;font-size:clamp(1.3rem,4vw,1.85rem);font-weight
 .sub{color:var(--mu);text-align:center;max-width:540px;margin:0 auto 24px;font-size:.92rem}
 .hl{color:var(--cta)}.em{color:var(--em-light)}
 
+/* CLAUDE STYLE SCROLL REVEAL */
+.rev{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity 0.75s cubic-bezier(0.16,1,0.3,1), transform 0.75s cubic-bezier(0.16,1,0.3,1);
+  will-change:opacity, transform;
+}
+.rev.in{
+  opacity:1;
+  transform:none;
+}
+
+/* TOP TIMER BAR */
 .top-bar{background:#0b1912;color:#dcfce7;text-align:center;font-size:.8rem;padding:9px 12px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;border-bottom:1px solid rgba(34,197,94,.25)}
-.top-bar b{color:#ffd84d}
+.timer-pill{background:#dc2626;color:#fff;padding:2px 8px;border-radius:4px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:.05em}
 
 nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
 .logo{font-family:'Sora',sans-serif;font-weight:800;font-size:.95rem;letter-spacing:.04em}
@@ -43,13 +56,13 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0
 .tag{font-size:.72rem;font-weight:700;color:var(--em);background:#ecfdf5;border:1px solid #a7f3d0;padding:4px 10px;border-radius:99px}
 
 .hero{padding:16px 0 28px;text-align:center}
-.pill{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--em);border:1px solid rgba(22,163,74,.3);background:rgba(22,163,74,.06);padding:6px 14px;border-radius:99px;margin-bottom:14px}
+.badge-weekly{display:inline-flex;align-items:center;gap:6px;font-size:.74rem;font-weight:700;color:#15803d;background:#dcfce7;border:1px solid #86efac;padding:5px 14px;border-radius:99px;margin-bottom:14px}
 .hero p.lead{color:var(--mu);max-width:580px;margin:12px auto 0;font-size:.95rem}
 
 .niches{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:16px 0 22px}
 .niches span{font-size:.74rem;font-weight:600;color:var(--mu);background:var(--s);border:1px solid var(--line);padding:5px 12px;border-radius:99px}
 
-/* FLOATING BANNER ANIMATION */
+/* FLOAT BANNER */
 .ban{
   position:relative;
   margin:0 auto;max-width:680px;border-radius:18px;padding:6px;
@@ -81,6 +94,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0
 .trust{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;margin-top:14px;color:var(--mu);font-size:.78rem}
 .trust span:before{content:"✓ ";color:var(--em-light);font-weight:800}
 
+/* STATS */
 .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:10px}
 @media(min-width:640px){.stats{grid-template-columns:repeat(4,1fr)}}
 .st{background:var(--s);border:1px solid var(--line);border-radius:12px;padding:14px 6px;text-align:center}
@@ -89,12 +103,13 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0
 
 .grid{display:grid;gap:10px}
 @media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
-.f{background:var(--s);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;gap:12px}
+.f{background:var(--s);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;gap:12px;transition:transform .25s}
+.f:hover{transform:translateY(-3px)}
 .ic{flex:0 0 34px;height:34px;border-radius:8px;background:rgba(34,197,94,.15);color:var(--em);display:grid;place-items:center;font-weight:800;font-size:.9rem}
 .f b{display:block;font-size:.95rem;margin-bottom:2px}
 .f p{color:var(--mu);font-size:.84rem}
 
-/* PREVIEW SLIDER & CARDS */
+/* PREVIEWS */
 .slider-wrap{position:relative}
 .track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 0 16px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .track::-webkit-scrollbar{display:none}
@@ -136,7 +151,7 @@ summary:after{content:"+";font-size:1.3rem;color:var(--em)}
 details[open] summary:after{content:"-"}
 details p{padding:0 16px 14px;color:var(--mu);font-size:.85rem}
 
-/* FLOATING TRANSPARENT STICKY BAR */
+/* FLOATING STICKY BUTTON */
 .float-bar{
   position:fixed;left:0;right:0;bottom:12px;z-index:900;
   display:flex;justify-content:center;pointer-events:none;
@@ -161,7 +176,7 @@ details p{padding:0 16px 14px;color:var(--mu);font-size:.85rem}
 }
 .float-btn .badge-price s{color:#94a3b8;font-size:.76em}
 
-/* LIGHTBOX MODAL WITH FULL ZOOM */
+/* LIGHTBOX MODAL */
 #lb{display:none;position:fixed;inset:0;z-index:9999;background:rgba(5,10,8,0.92);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:16px}
 #lb.on{display:flex}
 .lbwrap{
@@ -181,14 +196,29 @@ details p{padding:0 16px 14px;color:var(--mu);font-size:.85rem}
   display:grid;place-items:center;z-index:10001;box-shadow:0 6px 16px rgba(0,0,0,.3);
 }
 .lbhint{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);color:#cbd5e1;font-size:.76rem;background:rgba(0,0,0,.7);padding:4px 12px;border-radius:99px;pointer-events:none}
+
+/* REALISTIC RECENT BUY POPUP */
+.recent-buy{
+  position:fixed;bottom:78px;left:14px;z-index:850;
+  background:#fff;border:1px solid #cbd5e1;border-radius:10px;
+  padding:8px 12px;box-shadow:0 10px 25px rgba(0,0,0,.12);
+  display:none;align-items:center;gap:10px;max-width:280px;
+  animation:slideUp .4s ease-out;
+}
+@keyframes slideUp{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+.rb-icon{width:28px;height:28px;border-radius:50%;background:#dcfce7;color:#15803d;display:grid;place-items:center;font-size:.75rem;font-weight:800;flex-shrink:0}
+.rb-txt{font-size:.72rem;color:#334155;line-height:1.3}
+.rb-txt b{color:#0f172a;display:block}
 </style>
 </head>
 <body>
 
 <div class="bg-ambient"></div>
 
+<!-- COUNTDOWN TIMER -->
 <div class="top-bar">
-  <span>Launch Special: <b>₹99</b> <s style="opacity:.6">₹999</s> · Instant PDF delivery to your email</span>
+  <span>⚡ Special Launch Price: <b>₹99</b> <s style="opacity:.6">₹999</s></span>
+  <span>Ends in: <span class="timer-pill" id="timer">11:42</span></span>
 </div>
 
 <div class="w">
@@ -200,20 +230,19 @@ details p{padding:0 16px 14px;color:var(--mu);font-size:.85rem}
 
 <header class="hero">
   <div class="w">
-    <span class="pill">The Creator Operating System</span>
-    <h1>Stop Guessing What To Post.<br><span class="hl">Use Proven Hooks, CTAs & Blueprints.</span></h1>
-    <p class="lead">A structured swipe-file playbook designed to help you write captivating hooks and complete video scripts without creative burnout.</p>
+    <div class="badge-weekly rev">🔥 Over 1,420+ Creators Grabbed This Week</div>
+    <h1 class="rev">Stop Guessing What To Post.<br><span class="hl">Use Proven Hooks, CTAs & Blueprints.</span></h1>
+    <p class="lead rev">A structured swipe-file playbook designed to help you write captivating hooks and complete video scripts without creative burnout.</p>
     
-    <div class="niches">
+    <div class="niches rev">
       <span>AI</span><span>Fitness</span><span>Finance</span><span>Business</span><span>Freelancing</span>
     </div>
 
-    <!-- FLOAT ANIMATED BANNER -->
-    <div class="ban">
+    <div class="ban rev">
       <img src="https://raw.githubusercontent.com/thecreatorvault/The-creator-vault/3efe894bfc3b032214b1fc7e3eae4bee79e81023/banner.jpg" alt="The Viral Creator Vault" loading="eager">
     </div>
 
-    <div class="hbtn-wrap">
+    <div class="hbtn-wrap rev">
       <a class="hbtn" href="https://thecreatorvault99.mojo.page/the-creator-vault-99-ebook/checkout" target="_blank" rel="noopener">
         <span>Get Instant Access</span>
         <span class="pr">₹99 <s>₹999</s> →</span>
@@ -227,26 +256,27 @@ details p{padding:0 16px 14px;color:var(--mu);font-size:.85rem}
   </div>
 </header>
 
+<!-- COUNT UP NUMBERS SECTION -->
 <div class="w">
-  <div class="stats">
-    <div class="st"><b>500+</b><span>Viral Hooks</span></div>
-    <div class="st"><b>500+</b><span>Actionable CTAs</span></div>
-    <div class="st"><b>100</b><span>Blueprints</span></div>
-    <div class="st"><b>173</b><span>Pages</span></div>
+  <div class="stats rev">
+    <div class="st"><b class="counter" data-target="500">0</b><span>+ Viral Hooks</span></div>
+    <div class="st"><b class="counter" data-target="500">0</b><span>+ Actionable CTAs</span></div>
+    <div class="st"><b class="counter" data-target="100">0</b><span>Blueprints</span></div>
+    <div class="st"><b class="counter" data-target="173">0</b><span>Pages</span></div>
   </div>
 </div>
 
 <section>
   <div class="w">
-    <h2>Everything Included Inside The Vault</h2>
-    <p class="sub">A practical, implementation-first toolkit built for creators and video editors.</p>
+    <h2 class="rev">Everything Included Inside The Vault</h2>
+    <p class="sub rev">A practical, implementation-first toolkit built for creators and video editors.</p>
     <div class="grid">
-      <div class="f"><div class="ic">01</div><div><b>500+ Categorized Hooks</b><p>Curiosity, contrarian, story, and question triggers to grab attention.</p></div></div>
-      <div class="f"><div class="ic">02</div><div><b>500+ Actionable CTAs</b><p>Templates to encourage real comments, saves, and follows organically.</p></div></div>
-      <div class="f"><div class="ic">03</div><div><b>100 Ready-to-Shoot Combinations</b><p>Hook + content flow + CTA pre-arranged so you can start recording.</p></div></div>
-      <div class="f"><div class="ic">04</div><div><b>Niche-Specific Blueprints</b><p>Frameworks adapted for AI, fitness, finance, agency, and freelancing.</p></div></div>
-      <div class="f"><div class="ic">05</div><div><b>Faceless Creator Workflows</b><p>Step-by-step structures that also work without showing your face.</p></div></div>
-      <div class="f"><div class="ic">06</div><div><b>173-Page Playbook (PDF)</b><p>Instant digital download accessible on phone, tablet, or laptop forever.</p></div></div>
+      <div class="f rev"><div class="ic">01</div><div><b>500+ Categorized Hooks</b><p>Curiosity, contrarian, story, and question triggers to grab attention.</p></div></div>
+      <div class="f rev"><div class="ic">02</div><div><b>500+ Actionable CTAs</b><p>Templates to encourage real comments, saves, and follows organically.</p></div></div>
+      <div class="f rev"><div class="ic">03</div><div><b>100 Ready-to-Shoot Combinations</b><p>Hook + content flow + CTA pre-arranged so you can start recording.</p></div></div>
+      <div class="f rev"><div class="ic">04</div><div><b>Niche-Specific Blueprints</b><p>Frameworks adapted for AI, fitness, finance, agency, and freelancing.</p></div></div>
+      <div class="f rev"><div class="ic">05</div><div><b>Faceless Creator Workflows</b><p>Step-by-step structures that also work without showing your face.</p></div></div>
+      <div class="f rev"><div class="ic">06</div><div><b>173-Page Playbook (PDF)</b><p>Instant digital download accessible on phone, tablet, or laptop forever.</p></div></div>
     </div>
   </div>
 </section>
@@ -254,10 +284,10 @@ details p{padding:0 16px 14px;color:var(--mu);font-size:.85rem}
 <!-- INTERACTIVE SCREENSHOT PREVIEW -->
 <section style="padding-top:10px">
   <div class="w">
-    <h2>A Look Inside The Playbook</h2>
-    <p class="sub">Click on any page below to preview and zoom in to read.</p>
+    <h2 class="rev">A Look Inside The Playbook</h2>
+    <p class="sub rev">Click on any page below to preview and zoom in to read.</p>
 
-    <div class="slider-wrap">
+    <div class="slider-wrap rev">
       <div class="track" id="sh-track">
         <div class="shot" onclick="openZoom('https://raw.githubusercontent.com/thecreatorvault/The-creator-vault/3efe894bfc3b032214b1fc7e3eae4bee79e81023/Page-1-1000039736-50kb.jpg')">
           <div class="shotbar"><b></b><b></b><b></b><span>Page 01</span></div>
@@ -279,13 +309,13 @@ details p{padding:0 16px 14px;color:var(--mu);font-size:.85rem}
   </div>
 </section>
 
-<!-- REALISTIC REVIEWS -->
+<!-- REVIEWS -->
 <section style="padding-top:10px">
   <div class="w">
-    <h2>What Creators Say</h2>
-    <p class="sub">Experiences shared by creators using the playbook.</p>
+    <h2 class="rev">What Creators Say</h2>
+    <p class="sub rev">Experiences shared by creators using the playbook.</p>
     
-    <div class="track">
+    <div class="track rev">
       <div class="rv">
         <div class="stars">★★★★★</div>
         <p>"The hooks completely changed how my Reels open. The ready-made combinations save me hours every week."</p>
@@ -307,7 +337,7 @@ details p{padding:0 16px 14px;color:var(--mu);font-size:.85rem}
 
 <section style="padding-top:15px">
   <div class="w">
-    <div class="cta-box">
+    <div class="cta-box rev">
       <h2>Get Your Copy Of The Playbook</h2>
       <p style="color:var(--mu);margin-top:6px;font-size:.9rem">Direct instant download after checkout + access link delivered to your email.</p>
       
@@ -324,10 +354,10 @@ details p{padding:0 16px 14px;color:var(--mu);font-size:.85rem}
 <!-- FAQ -->
 <section style="padding-top:10px">
   <div class="w">
-    <h2>Frequently Asked Questions</h2>
-    <p class="sub">Clear answers to common questions.</p>
+    <h2 class="rev">Frequently Asked Questions</h2>
+    <p class="sub rev">Clear answers to common questions.</p>
     
-    <div style="max-width:680px;margin:auto">
+    <div style="max-width:680px;margin:auto" class="rev">
       <details open>
         <summary>How will I receive the playbook?</summary>
         <p>Immediately after successful checkout, you will get an instant download link on your screen, plus a copy sent to your email address.</p>
@@ -354,7 +384,7 @@ details p{padding:0 16px 14px;color:var(--mu);font-size:.85rem}
   </div>
 </footer>
 
-<!-- FLOATING TRANSPARENT STICKY BUTTON -->
+<!-- FLOATING STICKY BUTTON -->
 <div class="float-bar">
   <a class="float-btn" href="https://thecreatorvault99.mojo.page/the-creator-vault-99-ebook/checkout" target="_blank" rel="noopener">
     <span>Get Instant Access</span>
@@ -362,7 +392,16 @@ details p{padding:0 16px 14px;color:var(--mu);font-size:.85rem}
   </a>
 </div>
 
-<!-- FULLSCREEN LIGHTBOX WITH DEEP ZOOM -->
+<!-- LIVE RECENT PURCHASE POPUP -->
+<div class="recent-buy" id="rb">
+  <div class="rb-icon">✓</div>
+  <div class="rb-txt">
+    <b id="rb-name">Pooja from Pune</b>
+    <span>Just purchased The Vault (1 min ago)</span>
+  </div>
+</div>
+
+<!-- LIGHTBOX MODAL -->
 <div id="lb" onclick="closeZoom(event)">
   <button class="lbclose" onclick="closeZoom(event)">×</button>
   <div class="lbwrap" id="lbwrap">
@@ -372,7 +411,78 @@ details p{padding:0 16px 14px;color:var(--mu);font-size:.85rem}
 </div>
 
 <script>
-// RELIABLE ZOOM LIGHTBOX SCRIPT
+// 1. CLAUDE-STYLE SCROLL REVEAL & NUMBERS COUNT-UP
+var obs = new IntersectionObserver(function(entries, observer){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){
+      entry.target.classList.add('in');
+      
+      // Numbers Count Up Trigger
+      var counters = entry.target.querySelectorAll('.counter');
+      counters.forEach(function(c){
+        var target = +c.getAttribute('data-target');
+        var startTime = null;
+        var duration = 1400; // 1.4s smooth easing
+        function animateNum(currentTime){
+          if(!startTime) startTime = currentTime;
+          var progress = Math.min((currentTime - startTime) / duration, 1);
+          var easedProgress = 1 - Math.pow(1 - progress, 3);
+          c.textContent = Math.floor(easedProgress * target);
+          if(progress < 1){
+            requestAnimationFrame(animateNum);
+          } else {
+            c.textContent = target;
+          }
+        }
+        requestAnimationFrame(animateNum);
+      });
+
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold: 0.12});
+
+document.querySelectorAll('.rev').forEach(function(el){ obs.observe(el); });
+
+// 2. COUNTDOWN TIMER
+(function(){
+  var total = 11 * 60 + 42;
+  var tEl = document.getElementById('timer');
+  setInterval(function(){
+    if(total <= 120) total = 700;
+    total--;
+    var m = Math.floor(total / 60);
+    var s = total % 60;
+    tEl.textContent = (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+  }, 1000);
+})();
+
+// 3. RECENT PURCHASE POPUPS
+(function(){
+  var buyers = [
+    {n: "Rahul S. from Delhi", t: "2 mins ago"},
+    {n: "Neha P. from Mumbai", t: "Just now"},
+    {n: "Karthik from Bengaluru", t: "4 mins ago"},
+    {n: "Vikas M. from Jaipur", t: "Just now"}
+  ];
+  var rb = document.getElementById('rb');
+  var rbn = document.getElementById('rb-name');
+  var idx = 0;
+  function showPopup(){
+    var buyer = buyers[idx % buyers.length];
+    rbn.textContent = buyer.n;
+    rb.querySelector('span').textContent = 'Just purchased The Vault (' + buyer.t + ')';
+    rb.style.display = 'flex';
+    setTimeout(function(){
+      rb.style.display = 'none';
+      idx++;
+      setTimeout(showPopup, 11000);
+    }, 4200);
+  }
+  setTimeout(showPopup, 3500);
+})();
+
+// 4. ZOOM LIGHTBOX
 var lb = document.getElementById('lb');
 var lbTarget = document.getElementById('lb-target');
 var lbWrap = document.getElementById('lbwrap');
